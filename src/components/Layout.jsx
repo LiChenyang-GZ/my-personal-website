@@ -19,7 +19,7 @@ const Layout = () => {
       <AppBar position="fixed" color="default" elevation={3}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Chenyang Li
+            Christy's Personal Website
           </Typography>
           <Box sx={{ display: 'flex', gap: 2 }}>
             {navItems.map((item) => (
@@ -68,14 +68,21 @@ const Layout = () => {
                 boxShadow: '0 0 20px rgba(0,0,0,0.1)'
               }}
             />
-            <Typography variant="h5" component="h2" gutterBottom>
+            <Typography variant="h5" component="h2" gutterBottom sx={{ textAlign: 'center' }}>
               Chenyang Li (Christy)
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'center' }}>
               Software Developer
             </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-              Master's Student in Computer Science
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 1, textAlign: 'center'}}>
+              Lichenyang_christy@outlook.com
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: "60px", textAlign: 'left'}}>
+              Hi, I'm Christy! I am a Master student studying Computer Science at the University of Sydney.
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 1, textAlign: 'left'}}>
+              Previously, I studied E-Business and Information Systems and worked as a data analyst intern in a Marketing-AI company
+              and an Algorithm Engineer in an Environmental Technology company. 
             </Typography>
           </Box>
         </Box>
@@ -99,4 +106,4 @@ const Layout = () => {
   );
 };
 
-export default Layout; 
+export default Layout;

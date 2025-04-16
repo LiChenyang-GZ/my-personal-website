@@ -16,11 +16,12 @@ const Home = () => {
           About this site
         </Typography>
         <Typography variant="h5" color="text.secondary" paragraph>
-          A beautiful website built with React, MUI, and EmailJS.
+          A beautiful website built with React, MUI, and EmailJS🤩
         </Typography>
-        <Typography variant="body1" paragraph sx={{ maxWidth: '800px', mx: 'auto', mb: 4 }}>
-          This site is a portfolio of my projects and experiences. I specialize in web development and machine learning, with a passion for creating 
+        <Typography variant="body1" paragraph sx={{ maxWidth: '1000px', mb: 4,}}>
+          This site is a portfolio of my projects and experiences. I specialize in web development and data science, with a passion for creating 
           efficient and user-friendly applications. Please feel free to read more about me and my projects.
+          If you have any advice, please contact me through the contact page 😄.
         </Typography>
         <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center' }}>
           <Button

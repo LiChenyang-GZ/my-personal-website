@@ -1,23 +1,23 @@
-import { Box, Typography, Card, CardContent, CardMedia, CardActionArea, Grid } from '@mui/material';
+import { Box, Typography, Card, CardContent, CardMedia, CardActionArea, Grid, Divider } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
 const Projects = () => {
   const projectCategories = [
     {
       title: 'Web Development',
-      image: '/web-dev.jpg', // 你需要添加这个图片到public文件夹
-      description: 'Creating responsive and modern web applications using React, Node.js, and other cutting-edge technologies.',
+      image: '/web-dev.jpg',
+      description: 'Creating responsive and modern web applications using React, Node.js, LLM technical, and other cutting-edge technologies.',
       path: '/projects/web-development'
     },
     {
-      title: 'Machine Learning',
-      image: '/ml.jpg', // 你需要添加这个图片到public文件夹
-      description: 'Developing and implementing machine learning models for data analysis and prediction.',
+      title: 'Data Science',
+      image: '/ml.jpg',
+      description: 'Developing and implementing multiple models for data analysis and prediction.',
       path: '/projects/machine-learning'
     },
     {
-      title: 'Problem Solving',
-      image: '/problem-solving.jpg', // 你需要添加这个图片到public文件夹
+      title: 'Data Analysis',
+      image: '/problem-solving.jpg',
       description: 'Applying analytical thinking and technical expertise to solve complex business challenges.',
       path: '/projects/problem-solving'
     }
@@ -28,6 +28,12 @@ const Projects = () => {
       <Typography variant="h4" gutterBottom>
         My Projects
       </Typography>
+      <Typography variant="h5" color="text.secondary" gutterBottom>
+          A collection of my projects 👩‍💻
+      </Typography>
+      <Divider sx={{ my: 3 }} />
+    
+    
       <Grid container spacing={4} sx={{ justifyContent: 'flex-start' }}>
         {projectCategories.map((category, index) => (
           <Grid item xs={12} sm={6} md={4} key={index} sx={{ 

@@ -1,7 +1,15 @@
-import { Box, Typography, Card, CardContent, CardMedia, CardActions, Button, Grid } from '@mui/material';
+import { Box, Typography, Card, CardContent, CardMedia, CardActions, Button, Grid, Divider } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import { useState, useRef, useEffect } from 'react';
 
 const ProblemSolvingProjects = () => {
+  const [expandedIndex, setExpandedIndex] = useState(null);
+  const [showMoreButtons, setShowMoreButtons] = useState([]);
+
+  const toggleExpand = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
   const projects = [
     {
       title: "Corporate Data Fraud Exclusion Rules (Company project)",
@@ -40,14 +48,26 @@ const ProblemSolvingProjects = () => {
     },
   ];
 
+  useEffect(() => {
+    const buttonsVisibility = projects.map((_, index) => {
+      const descriptionElement = document.getElementById(`description-${index}`);
+      if (descriptionElement) {
+        return descriptionElement.scrollHeight > descriptionElement.clientHeight;
+      }
+      return false;
+    });
+    setShowMoreButtons(buttonsVisibility);
+  }, [projects]);
+
   return (
     <Box>
       <Typography variant="h3" component="h1" gutterBottom>
-        Problem Solving Projects
+        Data Analysis Projects
       </Typography>
-      <Typography variant="body1" paragraph sx={{ mb: 4 }}>
-        A collection of projects showcasing my analytical and problem-solving abilities across different domains.
+      <Typography variant="h5" color="text.secondary" gutterBottom>
+        A collection of projects which used analytical thinking and technical expertise to solve complex business challenges.
       </Typography>
+      <Divider sx={{ my: 3 }} />
 
       <Grid container spacing={4} sx={{ justifyContent: 'flex-start' }}>
       {projects.map((project, index) => (
@@ -62,12 +82,6 @@ const ProblemSolvingProjects = () => {
             display: 'flex',
             flexDirection: 'column',
             boxShadow: 1,
-            // transition: 'transform 0.2s, box-shadow 0.2s',
-            // '&:hover': {
-            //   transform: 'scale(1.02)',
-            //   boxShadow: 6,
-            //   cursor: 'pointer'
-            // }
           }}>
             {/* 图片区域（固定 16:9 比例） */}
             <Box sx={{ 
@@ -120,11 +134,12 @@ const ProblemSolvingProjects = () => {
                 {project.date}
               </Typography>
               <Typography 
+                id={`description-${index}`}
                 variant="body2" 
                 color="text.secondary"
                 sx={{
                   display: '-webkit-box',
-                  WebkitLineClamp: 3,
+                  WebkitLineClamp: expandedIndex === index ? 'unset' : 3,
                   WebkitBoxOrient: 'vertical',
                   overflow: 'hidden',
                   textOverflow: 'ellipsis'
@@ -132,6 +147,19 @@ const ProblemSolvingProjects = () => {
               >
                 {project.description}
               </Typography>
+              {showMoreButtons[index] && (
+                <Button 
+                  size="small" 
+                  onClick={() => toggleExpand(index)}
+                  sx={{ 
+                    mt: 1,
+                    alignSelf: 'flex-start', // 左对齐
+                    textTransform: 'none',  // 禁用大写转换
+                  }}
+                >
+                  {expandedIndex === index ? 'Show Less' : 'Show More'}
+                </Button>
+              )}
             </CardContent>
 
             {/* 按钮区域 */}
@@ -156,4 +184,4 @@ const ProblemSolvingProjects = () => {
   );
 };
 
-export default ProblemSolvingProjects; 
+export default ProblemSolvingProjects;

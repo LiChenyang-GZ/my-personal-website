@@ -38,7 +38,7 @@ const Education = () => {
           Education
         </Typography>
         <Typography variant="h5" color="text.secondary" gutterBottom>
-          My Academic Journey
+          My Academic Journey 📚
         </Typography>
         <Divider sx={{ my: 3 }} />
       </Box>

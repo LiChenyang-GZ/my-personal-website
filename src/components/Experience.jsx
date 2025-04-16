@@ -15,7 +15,9 @@ const Experience = () => {
       position: 'Algorithm Engineer',
       responsibilities: [
         'Monitored the wastewater discharge of chemical enterprises, establish various models to determine whether the enterprises have over-discharge and leakage; whether the discharged water quality does not meet the standards; and whether the water quality data have been modified.',
-        'Monitored the pollution index of rivers in the region, and write monthly reports on water quality analysis of rivers.'
+        'Monitored the pollution index of rivers in the region, and write monthly reports on water quality analysis of rivers.',
+        'Use the visual model to monitor whether enterprises maintain equipment on time; whether water pollution occurs in rivers.',
+        'Built and deployed a company on-boarding AI model based on LangChain and ChatGLM3 to provide on-boarding guidance to new employees.'
       ]
     },
     {
@@ -36,7 +38,7 @@ const Experience = () => {
           Work Experience
         </Typography>
         <Typography variant="h5" color="text.secondary" gutterBottom>
-          Professional Journey
+          Professional Journey 💼
         </Typography>
         <Divider sx={{ my: 3 }} />
       </Box>

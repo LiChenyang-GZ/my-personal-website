@@ -117,28 +117,32 @@ const Contact = () => {
           Contact Me
         </Typography>
         <Typography variant="h5" color="text.secondary" gutterBottom>
-          Get in Touch
+          Get in Touch 📬
         </Typography>
         <Divider sx={{ my: 3 }} />
       </Box>
 
-      {/* 修改点1：调整Grid容器布局 */}
-      <Grid container spacing={4} alignItems="stretch">
-        {/* 联系信息卡片（左侧） */}
+      <Grid container spacing={4} sx={{ alignItems: 'stretch', flexGrow: 1 }}>
+        {/* 左侧联系信息（固定宽度，例如 md={4}） */}
         <Grid item xs={12} md={4}>
-          <Paper elevation={3} sx={{ p: 3, height: '100%' }}>
+          <Paper elevation={3} sx={{
+            p: 3,
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column'
+          }}>
             <Typography variant="h6" gutterBottom>
               Contact Information
             </Typography>
             <Box sx={{ mt: 3 }}>
               {contactInfo.map((info, index) => (
-                <Box 
-                  key={index} 
-                  component="a" 
+                <Box
+                  key={index}
+                  component="a"
                   href={info.link}
-                  sx={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
                     mb: 3,
                     color: 'inherit',
                     textDecoration: 'none',
@@ -169,13 +173,13 @@ const Contact = () => {
             </Typography>
             <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
               {socialLinks.map((social, index) => (
-                <IconButton 
+                <IconButton
                   key={index}
                   component="a"
                   href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  sx={{ 
+                  sx={{
                     color: 'primary.main',
                     '&:hover': {
                       backgroundColor: 'rgba(25, 118, 210, 0.1)'
@@ -189,19 +193,29 @@ const Contact = () => {
           </Paper>
         </Grid>
 
-        {/* 联系表单卡片（右侧） */}
-        <Grid item xs={12} md={8}>
-          <Paper elevation={3} sx={{ p: 3, height: '100%' }}>
+        {/* 右侧表单（占据剩余宽度，使用 flexGrow: 1） */}
+        <Grid item xs={12} md sx={{ flexGrow: 1 }}>
+          <Paper elevation={3} sx={{
+            p: 3,
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column'
+          }}>
             <Typography variant="h6" gutterBottom>
               Send Me a Message
             </Typography>
-            <Box 
-              component="form" 
-              ref={form} 
-              onSubmit={handleSubmit} 
-              sx={{ mt: 3 }}
+            <Box
+              component="form"
+              ref={form}
+              onSubmit={handleSubmit}
+              sx={{
+                mt: 3,
+                flexGrow: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                width: '100%'
+              }}
             >
-              {/* 修改点2：表单字段垂直排列 */}
               <TextField
                 required
                 fullWidth
@@ -236,17 +250,22 @@ const Contact = () => {
                 label="Message"
                 name="message"
                 multiline
-                rows={4}
+                rows={6}
                 value={formData.message}
                 onChange={handleChange}
-                sx={{ mb: 2 }}
+                sx={{ mb: 3 }}
               />
-              <Button 
-                type="submit" 
-                variant="contained" 
+              <Button
+                type="submit"
+                variant="contained"
                 size="large"
                 disabled={isSubmitting}
                 startIcon={isSubmitting ? <CircularProgress size={20} color="inherit" /> : null}
+                sx={{
+                  mt: 'auto',
+                  alignSelf: 'flex-start',
+                  width: { xs: '100%', md: 'auto' }
+                }}
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
@@ -255,9 +274,9 @@ const Contact = () => {
         </Grid>
       </Grid>
 
-      <Snackbar 
-        open={openSnackbar} 
-        autoHideDuration={6000} 
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={6000}
         onClose={handleCloseSnackbar}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
       >

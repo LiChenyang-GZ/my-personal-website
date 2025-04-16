@@ -1,11 +1,11 @@
-import { Box, Typography, Card, CardContent, CardMedia, CardActions, Button, Grid } from '@mui/material';
-import { useState } from 'react';
+import { Box, Typography, Card, CardContent, CardMedia, CardActions, Button, Grid, Divider } from '@mui/material';
+import { useState, useEffect } from 'react';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 const MLProjects = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
+  const [showMoreButtons, setShowMoreButtons] = useState([]);
 
-  // 新增：切换展开/折叠的函数
   const toggleExpand = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
@@ -48,14 +48,26 @@ const MLProjects = () => {
     
   ];
 
+  useEffect(() => {
+    const buttonsVisibility = projects.map((_, index) => {
+      const descriptionElement = document.getElementById(`description-${index}`);
+      if (descriptionElement) {
+        return descriptionElement.scrollHeight > descriptionElement.clientHeight;
+      }
+      return false;
+    });
+    setShowMoreButtons(buttonsVisibility);
+  }, [projects]);
+
   return (
     <Box>
       <Typography variant="h3" component="h1" gutterBottom>
-        Machine Learning Project
+        Data Science Project
       </Typography>
-      <Typography variant="body1" paragraph sx={{ mb: 4 }}>
-        A collection of projects showcasing my analytical and problem-solving abilities across different domains.
+      <Typography variant="h5" color="text.secondary" gutterBottom>
+        A collection of projects which used deep learning and machine learning technic I done before.
       </Typography>
+      <Divider sx={{ my: 3 }} />
 
       <Grid container spacing={4} sx={{ justifyContent: 'flex-start' }}>
       {projects.map((project, index) => (
@@ -128,6 +140,7 @@ const MLProjects = () => {
                 {project.date}
               </Typography>
               <Typography 
+                id={`description-${index}`}
                 variant="body2" 
                 color="text.secondary"
                 sx={{
@@ -140,7 +153,8 @@ const MLProjects = () => {
               >
                 {project.description}
               </Typography>
-              <Button 
+              {showMoreButtons[index] && (
+                <Button 
                   size="small" 
                   onClick={() => toggleExpand(index)}
                   sx={{ 
@@ -151,6 +165,7 @@ const MLProjects = () => {
                 >
                   {expandedIndex === index ? 'Show Less' : 'Show More'}
                 </Button>
+              )}
             </CardContent>
 
             {/* 按钮区域 */}
@@ -175,4 +190,4 @@ const MLProjects = () => {
   );
 };
 
-export default MLProjects; 
+export default MLProjects;

@@ -36,6 +36,9 @@ const About = () => {
       <Typography variant="h3" component="h1" gutterBottom>
         About Me
       </Typography>
+      <Typography variant="h5" color="text.secondary" gutterBottom>
+          A breif introduction about me 👋
+        </Typography>
       <Divider sx={{ my: 3 }} />
 
       <Paper elevation={3} sx={{ p: 4, mb: 4 }}>
