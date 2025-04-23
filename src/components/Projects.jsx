@@ -5,19 +5,19 @@ const Projects = () => {
   const projectCategories = [
     {
       title: 'Web Development',
-      image: '/web-dev.jpg',
+      image: './web-dev.jpg',
       description: 'Creating responsive and modern web applications using React, Node.js, LLM technical, and other cutting-edge technologies.',
       path: '/projects/web-development'
     },
     {
       title: 'Data Science',
-      image: '/ml.jpg',
+      image: './ml.jpg',
       description: 'Developing and implementing multiple models for data analysis and prediction.',
       path: '/projects/machine-learning'
     },
     {
       title: 'Data Analysis',
-      image: '/problem-solving.jpg',
+      image: './problem-solving.jpg',
       description: 'Applying analytical thinking and technical expertise to solve complex business challenges.',
       path: '/projects/problem-solving'
     }

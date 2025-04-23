@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Layout from './components/Layout';
@@ -34,23 +34,21 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Router>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="home" element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="projects" element={<Projects />} />
-            <Route path="projects/web-development" element={<WebProjects />} />
-            <Route path="projects/machine-learning" element={<MLProjects />} />
-            <Route path="projects/problem-solving" element={<ProblemSolvingProjects />} />
-            <Route path="education" element={<Education />} />
-            <Route path="experience" element={<Experience />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Route>
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="home" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="projects/web-development" element={<WebProjects />} />
+          <Route path="projects/machine-learning" element={<MLProjects />} />
+          <Route path="projects/problem-solving" element={<ProblemSolvingProjects />} />
+          <Route path="education" element={<Education />} />
+          <Route path="experience" element={<Experience />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+      </Routes>
     </ThemeProvider>
   );
 }

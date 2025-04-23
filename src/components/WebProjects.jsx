@@ -17,8 +17,8 @@ const WebProjects = () => {
       date: 'April 2025',
       description: 'A responsive personal portfolio website built with React and Material-UI.',
       mediaType: 'image',
-      media: '/personal-website.jpg',
-      link: 'https://github.com/yourusername/personal-website'
+      media: './personal-website.jpg',
+      link: 'https://lichenyang-gz.github.io/my-personal-website/'
     },
     {
         title: 'B2YBooks Online Store',
@@ -27,7 +27,7 @@ const WebProjects = () => {
         'The application allows users to browse books, search and filter book listings, add items to a shopping cart, and toggle between light/dark modes. ' + 
         'The implementation uses core web technologies (HTML, CSS, and JavaScript) without any third-party frameworks or libraries.',
         mediaType: 'image',
-        media: '/B2YBooks Online Store.jpg',
+        media: './B2YBooks Online Store.jpg',
         link: 'https://github.com/LiChenyang-GZ/B2YBooks-Online-Store/tree/main'
     },
     {
@@ -35,8 +35,8 @@ const WebProjects = () => {
         date: 'Octorber 2024',
         description: 'A video game built with Gradle 9.0 and Java 8.0. It is the final project of COMP9003(object-oriented programming)',
         mediaType: 'video',
-        media: '/inkballVideo.mp4',
-        poster: '/inkball.jpg',
+        media: './inkballVideo.mp4',
+        poster: './inkball.jpg',
         link: 'https://github.com/LiChenyang-GZ/inkball_scaffold'
     },
     {
@@ -46,7 +46,7 @@ const WebProjects = () => {
         + 'Organized documents related to on-boarding training, chunked and vectorized the documents, and then stored the document data in a vector database.' 
         + 'Deployed on-boarding AI model based on LangChain framework and ChatGLM3-6B model to create and define prompts and save forms for historical conversations and answers',
         mediaType: 'image',
-        media: '/ConversationLLM.jpg',
+        media: './ConversationLLM.jpg',
     }
   ];
 

@@ -59,7 +59,7 @@ const Layout = () => {
         >
           <Box sx={{ textAlign: 'center', mb: 4 }}>
             <Avatar
-              src="/photo.png"
+              src="photo.png"
               sx={{
                 width: 150,
                 height: 150,

@@ -20,7 +20,7 @@ const MLProjects = () => {
       + 'Communicated with colleagues from various departments to understand the water quality pollution scenarios in the river gushes, ' 
       + 'and set relevant rules included equipment abnormal and water quality pollution.',
       mediaType: 'image',
-      media: '/waterQuality.jpg',
+      media: './waterQuality.jpg',
     //   link: 'https://github.com/yourusername/env-prediction'
     },
     {
@@ -31,7 +31,7 @@ const MLProjects = () => {
       + 'and used MAE to measure the effect of the model under different parameters to forecast the rise and fall of bitcoin and gold.' 
       + 'Developed trading strategies and conducted sensitivity analysis.',
       mediaType: 'image',
-      media: '/MCM.jpg',
+      media: './MCM.jpg',
       link: 'https://www.mathmodels.org/Problems/2022/MCM-C/index.html'
     },
     {
@@ -42,7 +42,7 @@ const MLProjects = () => {
       + 'Observed the results of different models and adjusted the parameters of the CNN model through the control variates method and Bayes\’ theorem to get the optimized model'
       + 'Developed machine learning models achieving top 12.8% ranking (544/4245).',
       mediaType: 'image',
-      media: '/JaneStreet.jpg',
+      media: './JaneStreet.jpg',
       link: 'https://www.kaggle.com/competitions/jane-street-market-prediction/overview'
     },
     

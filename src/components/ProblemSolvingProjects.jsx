@@ -20,7 +20,7 @@ const ProblemSolvingProjects = () => {
       + "Divided the rules into five cases: continuous unchanged, small fluctuation, sudden drop abnormality, " 
       + "exceeding the abnormal standard, and abnormal water quantity;",
       mediaType: 'image',
-      media: "/dataFraud.jpg",
+      media: "./dataFraud.jpg",
       link: null
     },
     {
@@ -31,7 +31,7 @@ const ProblemSolvingProjects = () => {
       + 'Also understand the behaviors of "haters" on social media and establish rules to identify haters\'s accounts and posts.' 
       + 'Help brand to improve their marketing strategy based on customer review analysis.',
       mediaType: "image",
-      media: '/skincare project.jpg',
+      media: './skincare project.jpg',
       link: 'https://www.shangyexinzhi.com/article/4677117.html'
     },
     {
@@ -43,7 +43,7 @@ const ProblemSolvingProjects = () => {
       + 'During the pandemic, people tend to show their support when they find others are quite sad. ' 
       + 'We also expect to see correlations between some positive appraisals and user engagement.',
       mediaType: 'image',
-      media: '/Conference Paper.jpg',
+      media: './Conference Paper.jpg',
       link: 'https://aisel.aisnet.org/iceb2021/70/'
     },
   ];
