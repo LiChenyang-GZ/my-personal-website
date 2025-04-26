@@ -1,9 +1,20 @@
 name: Deploy to GitHub Pages
-on: push
+on:
+  push:
+    branches:
+      - main # 当 main 分支有 push 时触发 workflow
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: gh-pages  # 从 gh-pages 分支检出代码
       - uses: actions/setup-node@v3
-      - run: npm install && npm run deploy
+        with:
+          node-version: 16 # or your desired Node.js version
+      - run: npm install
+      - run: npm run deploy
+        env:
+          CI: false # 避免一些 CI 环境下的问题，根据你的项目情况决定是否需要
