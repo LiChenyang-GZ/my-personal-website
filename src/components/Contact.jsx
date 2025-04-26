@@ -17,6 +17,8 @@ import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import GitbookIcon from './icons/GitbookIcon';
+import CSDNIcon from './icons/CSDNIcon';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import emailjs from '@emailjs/browser';
 
@@ -107,6 +109,16 @@ const Contact = () => {
       icon: <GitHubIcon />,
       title: 'GitHub',
       link: 'https://github.com/LiChenyang-GZ'
+    },
+    {
+      icon: <GitbookIcon />,
+      title: 'GitBook',
+      link: 'https://christy-blog.gitbook.io/ctrl+s-knowledge/'
+    },
+    {
+      icon: <CSDNIcon />,
+      title: 'CSDN',
+      link: 'https://blog.csdn.net/weixin_46599926?type=blog'
     }
   ];
 

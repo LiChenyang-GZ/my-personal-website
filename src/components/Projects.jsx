@@ -1,4 +1,4 @@
-import { Box, Typography, Card, CardContent, CardMedia, CardActionArea, Grid, Divider } from '@mui/material';
+import { Container, Typography, Card, CardContent, CardMedia, CardActionArea, Grid, Divider, Box } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
 const Projects = () => {
@@ -24,15 +24,14 @@ const Projects = () => {
   ];
 
   return (
-    <Box sx={{ p: 4 }}>
-      <Typography variant="h4" gutterBottom>
+    <Container maxWidth="lg" sx={{ py: 8 }}>
+      <Typography variant="h3" component="h1" gutterBottom>
         My Projects
       </Typography>
       <Typography variant="h5" color="text.secondary" gutterBottom>
           A collection of my projects 👩‍💻
       </Typography>
       <Divider sx={{ my: 3 }} />
-    
     
       <Grid container spacing={4} sx={{ justifyContent: 'flex-start' }}>
         {projectCategories.map((category, index) => (
@@ -102,8 +101,8 @@ const Projects = () => {
           </Grid>
         ))}
       </Grid>
-    </Box>
+    </Container>
   );
 };
 
-export default Projects; 
+export default Projects;
