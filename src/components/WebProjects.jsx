@@ -1,4 +1,4 @@
-import { Box, Typography, Card, CardContent, CardMedia, CardActions, Button, Grid, Divider } from '@mui/material';
+import { Container, Box, Typography, Card, CardContent, CardMedia, CardActions, Button, Grid, Divider } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { useState, useEffect } from 'react';
@@ -62,7 +62,7 @@ const WebProjects = () => {
   }, [projects]);
 
   return (
-    <Box>
+    <Container maxWidth="lg" sx={{ py: 8 }}>
       <Typography variant="h3" component="h1" gutterBottom>
         Web Development Project
       </Typography>
@@ -182,7 +182,7 @@ const WebProjects = () => {
         </Grid>
       ))}
     </Grid>
-    </Box>
+    </Container>
   );
 };
 

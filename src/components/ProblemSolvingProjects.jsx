@@ -1,4 +1,4 @@
-import { Box, Typography, Card, CardContent, CardMedia, CardActions, Button, Grid, Divider } from '@mui/material';
+import { Container, Box, Typography, Card, CardContent, CardMedia, CardActions, Button, Grid, Divider } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { useState, useRef, useEffect } from 'react';
 
@@ -60,7 +60,7 @@ const ProblemSolvingProjects = () => {
   }, [projects]);
 
   return (
-    <Box>
+    <Container maxWidth="lg" sx={{ py: 8 }}>
       <Typography variant="h3" component="h1" gutterBottom>
         Data Analysis Projects
       </Typography>
@@ -180,7 +180,7 @@ const ProblemSolvingProjects = () => {
         </Grid>
       ))}
     </Grid>
-    </Box>
+    </Container>
   );
 };
 

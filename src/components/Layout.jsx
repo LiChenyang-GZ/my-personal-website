@@ -5,12 +5,12 @@ const Layout = () => {
   const location = useLocation();
   
   const navItems = [
-    { title: 'Home', path: '/home' },
-    { title: 'About', path: '/about' },
-    { title: 'Education', path: '/education' },
-    { title: 'Experience', path: '/experience' },
-    { title: 'Projects', path: '/projects' },
-    { title: 'Contact', path: '/contact' }
+    { title: 'Home', path: 'home' },
+    { title: 'About', path: 'about' },
+    { title: 'Education', path: 'education' },
+    { title: 'Experience', path: 'experience' },
+    { title: 'Projects', path: 'projects' },
+    { title: 'Contact', path: 'contact' }
   ];
 
   return (
@@ -18,7 +18,16 @@ const Layout = () => {
       {/* 顶部导航栏 */}
       <AppBar position="fixed" color="default" elevation={3}>
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography 
+            variant="h6" 
+            component={RouterLink}
+            to="home"
+            sx={{ 
+              flexGrow: 1,
+              color: 'inherit',
+              textDecoration: 'none'
+            }}
+          >
             Christy's Personal Website
           </Typography>
           <Box sx={{ display: 'flex', gap: 2 }}>
@@ -29,8 +38,8 @@ const Layout = () => {
                 to={item.path}
                 color="inherit"
                 sx={{
-                  fontWeight: location.pathname === item.path ? 'bold' : 'normal',
-                  borderBottom: location.pathname === item.path ? '2px solid' : 'none',
+                  fontWeight: location.pathname === `/${item.path}` ? 'bold' : 'normal',
+                  borderBottom: location.pathname === `/${item.path}` ? '2px solid' : 'none',
                   borderColor: 'primary.main',
                   borderRadius: 0
                 }}
@@ -68,19 +77,19 @@ const Layout = () => {
                 boxShadow: '0 0 20px rgba(0,0,0,0.1)'
               }}
             />
-            <Typography variant="h5" component="h2" gutterBottom sx={{ textAlign: 'center' }}>
+            <Typography variant="h5" component="h2" gutterBottom>
               Chenyang Li (Christy)
             </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ textAlign: 'center' }}>
+            <Typography variant="body2" color="text.secondary">
               Software Developer
             </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 1, textAlign: 'center'}}>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
               Lichenyang_christy@outlook.com
             </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mt: "60px", textAlign: 'left'}}>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: "60px", textAlign: 'left' }}>
               Hi, I'm Christy! I am a Master student studying Computer Science at the University of Sydney.
             </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 1, textAlign: 'left'}}>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 1, textAlign: 'left' }}>
               Previously, I studied E-Business and Information Systems and worked as a data analyst intern in a Marketing-AI company
               and an Algorithm Engineer in an Environmental Technology company. 
             </Typography>
