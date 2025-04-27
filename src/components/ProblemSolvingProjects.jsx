@@ -52,12 +52,15 @@ const ProblemSolvingProjects = () => {
     const buttonsVisibility = projects.map((_, index) => {
       const descriptionElement = document.getElementById(`description-${index}`);
       if (descriptionElement) {
-        return descriptionElement.scrollHeight > descriptionElement.clientHeight;
+        // 获取 description 的初始高度（3行）和完整高度
+        const lineHeight = parseInt(window.getComputedStyle(descriptionElement).lineHeight);
+        const maxHeight = lineHeight * 3; // 3行的高度
+        return descriptionElement.scrollHeight > maxHeight;
       }
       return false;
     });
     setShowMoreButtons(buttonsVisibility);
-  }, [projects]);
+  }, [expandedIndex]); // 只在 expandedIndex 改变时重新计算
 
   return (
     <Container maxWidth="lg" sx={{ py: 8 }}>
