@@ -17,7 +17,7 @@ const WebProjects = () => {
       date: 'April 2025',
       description: 'A beautiful website built with React, MUI, and EmailJS, to showcase my portfolio and skills.' 
       + 'Implemented interactive features such as expandable project cards with image/video support and a timeline component.'
-      + 'Integrated EmailJS to enable direct messaging through the website.',
+      + 'Integrated EmailJS to enable direct messaging through the website.',
       mediaType: 'image',
       media: './personal-website.jpg',
       link: 'https://lichenyang-gz.github.io/my-personal-website/'
@@ -45,9 +45,11 @@ const WebProjects = () => {
     {
         title: 'On-boarding conversations Artificial Intelligence Model (Company project)',
         date: 'January 2023',
-        description: 'A web application built with Gradio. To provide on-boarding guidance to new employees. ' 
-        + 'Organized documents related to on-boarding training, chunked and vectorized the documents, and then stored the document data in a vector database.' 
-        + 'Deployed on-boarding AI model based on LangChain framework and ChatGLM3-6B model to create and define prompts and save forms for historical conversations and answers',
+        description: 'Developed a web-based onboarding assistant using Gradio to guide new employees through training processes. ' 
+        + 'Organised and processed onboarding documents by chunking and vectorising the content, ' 
+        + 'then stored the vectors in a dedicated vector database. ' 
+        + 'Deployed an AI-powered Q&A system using the LangChain framework and ChatGLM3-6B model, ' 
+        + 'incorporating prompt engineering and conversation history logging for continuous improvement.',
         mediaType: 'image',
         media: './ConversationLLM.jpg',
     }

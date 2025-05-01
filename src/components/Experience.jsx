@@ -14,10 +14,15 @@ const Experience = () => {
       company: 'Guangdong Create Environmental Technology Co., Ltd',
       position: 'Algorithm Engineer',
       responsibilities: [
-        'Monitored the wastewater discharge of chemical enterprises, establish various models to determine whether the enterprises have over-discharge and leakage; whether the discharged water quality does not meet the standards; and whether the water quality data have been modified.',
-        'Monitored the pollution index of rivers in the region, and write monthly reports on water quality analysis of rivers.',
-        'Use the visual model to monitor whether enterprises maintain equipment on time; whether water pollution occurs in rivers.',
-        'Built and deployed a company on-boarding AI model based on LangChain and ChatGLM3 to provide on-boarding guidance to new employees.'
+        'Monitored the wastewater discharge of chemical enterprises, developed and deployed machine learning models (e.g., XGBoost) ' 
+        + 'to detect excessive discharge and potential leakages, ensuring compliance with discharge standards and data integrity.',
+        'Built an early warning system for river water quality. Implemented Isolated Forest algorithm to identify abnormal mutation points, ' 
+        + 'used LSTM for water quality prediction, and established rule-based alerts for pollution detection. Resulting in a 25% improvement in inspection efficiency.',
+        'Monitored the pollution index of rivers in the region and authored monthly reports analyzing regional river water quality.',
+        'Developed and deployed an AI-powered onboarding chatbot based on LangChain and ChatGLM3 to provide onboarding ' 
+        + 'guidance to new employees. Used Gradio framework to complete front-end pages.',
+        'Designed and implemented a behaviour detection system usingYOLOv5 to monitor, ensure enterprises maintain equipment on time.',
+        'Designed and implemented a water pollution detection system using YOLOv5 to monitor, to ensure water pollution occurs in rivers.'
       ]
     },
     {
@@ -25,8 +30,10 @@ const Experience = () => {
       company: 'Shanghai MarcPoint Technology Co., Ltd.',
       position: 'Data Analysis Intern',
       responsibilities: [
-        'Understood the behaviors of "haters" on social media and establish rules to identify haters\'s accounts and posts.',
-        'Analyzed the reputation of skincare brands on social media, calculated metrics such as size, loyalty, and reputation to derive brand intelligence insights. Provided monthly reports on the social media heat for the skincare products.'
+        'Identified and analyzed online behaviors of "haters" on social media, ' 
+        + 'detect negative engagement patterns and establish identification rules for malicious accounts.',
+        'Assessed social media reputation of skincare brands by calculating key metrics such as audience size, ' 
+        + 'loyalty, and sentiment. Provided actionable insights to optimize marketing strategies and improve brand reputation.'
       ]
     }
   ];

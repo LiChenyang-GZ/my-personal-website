@@ -14,22 +14,21 @@ const MLProjects = () => {
     {
       title: 'Early warning system for water quality of river',
       date: 'September 2023',
-      description: 'To improve the efficiency of water quality and equipmet condition inspections. ' 
-      + 'Obtain relevant data, use the forward and backward sliding method for missing value supplementation, ' 
-      + 'use the isolated forest algorithm to identify abnormal mutation points, and use LSTM for water quality prediction.'
-      + 'Communicated with colleagues from various departments to understand the water quality pollution scenarios in the river gushes, ' 
-      + 'and set relevant rules included equipment abnormal and water quality pollution.',
+      description: 'Improved the efficiency of water quality and equipment condition inspections by implementing a data-driven monitoring system. ' 
+      + 'Collected and cleaned relevant datasets, applied forward and backward sliding methods to fill missing values, ' 
+      + 'used Isolation Forest to detect anomalous spikes, and implemented LSTM for time-series water quality prediction. ' 
+      + 'Collaborated with cross-functional teams to understand real-world pollution scenarios in river gushes ' 
+      + 'and defined rule-based alerts for equipment faults and water contamination events.',
       mediaType: 'image',
       media: './waterQuality.jpg',
-    //   link: 'https://github.com/yourusername/env-prediction'
     },
     {
       title: 'Mathematical Contest In Modeling',
       date: 'Febrary 2022',
-      description: 'Won H award in MCM. Developed a quantitative investment model based on the last 5 years of bitcoin and gold data given by the competition.' 
-      + 'Conducted data processing and visualization with Python, built ARIMA time series model, ' 
-      + 'and used MAE to measure the effect of the model under different parameters to forecast the rise and fall of bitcoin and gold.' 
-      + 'Developed trading strategies and conducted sensitivity analysis.',
+      description: 'Developed a quantitative trading strategy using time series forecasting and optimization techniques for the MCM competition (Honorable Mention). '
+        + 'Utilized Python to process and visualize five years of historical data on Bitcoin and gold, implemented the ARIMA time series model to enhance forecasting accuracy of market trends. '
+        + 'Developed and optimized a quantitative investment model, leveraged predictions by using predictions from the ARIMA model to devise effective trading strategies. '
+        + 'Applied dynamic programming to validate the optimal of our trading strategies, employed linear regression models for sensitivity analysis. Ensuring robust and resilient strategic approaches.',
       mediaType: 'image',
       media: './MCM.jpg',
       link: 'https://www.mathmodels.org/Problems/2022/MCM-C/index.html'
@@ -37,10 +36,10 @@ const MLProjects = () => {
     {
       title: 'Jane Street Market Prediction',
       date: 'August 2021',
-      description: 'Participated in Kaggle competition for financial market prediction. Visualize and pre-process the data.'
-      + 'Build a CNN model based on Keras and a ResNet model based on PyTorch. ' 
-      + 'Observed the results of different models and adjusted the parameters of the CNN model through the control variates method and Bayes\’ theorem to get the optimized model'
-      + 'Developed machine learning models achieving top 12.8% ranking (544/4245).',
+      description: 'Participated in a Kaggle financial market prediction competition. ' 
+      + 'Performed data visualisation and preprocessing, and developed deep learning models using CNN (Keras) and ResNet (PyTorch). ' 
+      + 'Evaluated model performance and applied hyperparameter tuning techniques—including control variates and Bayesian optimisation—to improve CNN accuracy. ' 
+      + 'Achieved top 12.8% ranking (544 out of 4,245 teams).',
       mediaType: 'image',
       media: './JaneStreet.jpg',
       link: 'https://www.kaggle.com/competitions/jane-street-market-prediction/overview'

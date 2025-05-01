@@ -14,11 +14,10 @@ const ProblemSolvingProjects = () => {
     {
       title: "Corporate Data Fraud Exclusion Rules (Company project)",
       date: "August 2023",
-      description: "Examined whether enterprises have falsified pollution emission data, " 
-      + "and improve the efficiency of the examination by the supervisory personnel" 
-      + "Communicated with colleagues to understand the scenarios and patterns of enterprise data falsification. " 
-      + "Divided the rules into five cases: continuous unchanged, small fluctuation, sudden drop abnormality, " 
-      + "exceeding the abnormal standard, and abnormal water quantity;",
+      description: 'Investigated potential falsification of pollution emission data by enterprises ' 
+      + 'and enhanced the efficiency of regulatory inspections. ' 
+      + 'Collaborated with team members to identify common falsification patterns and defined five rule-based cases: ' 
+      + 'constant values, minimal fluctuations, sudden drops, abnormal exceedance, and irregular water volume.',
       mediaType: 'image',
       media: "./dataFraud.jpg",
       link: null
@@ -26,10 +25,10 @@ const ProblemSolvingProjects = () => {
     {
       title: 'Skincare Product Business Analysis Project (Intern project)',
       date: 'Jan - Jane, 2022',
-      description: 'Marketing-AI company internship project. Analyze the reputation of skincare brands on social media, ' 
-      + 'calculating metrics such as size, loyalty, and reputation to derive brand intelligence insights. ' 
-      + 'Also understand the behaviors of "haters" on social media and establish rules to identify haters\'s accounts and posts.' 
-      + 'Help brand to improve their marketing strategy based on customer review analysis.',
+      description: 'Conducted social media analytics for a marketing-AI firm to assess the reputation of skincare brands.' 
+      + 'Calculated brand metrics such as audience size, loyalty, and reputation to generate actionable brand intelligence. ' 
+      + 'Investigated negative engagement patterns ("haters") and developed rule-based systems to identify toxic accounts and posts. ' 
+      + 'Delivered insights that informed and improved client marketing strategies based on customer review analysis.',
       mediaType: "image",
       media: './skincare project.jpg',
       link: 'https://www.shangyexinzhi.com/article/4677117.html'
@@ -37,11 +36,11 @@ const ProblemSolvingProjects = () => {
     {
       title: 'User Engagement in Online Communities during COVID-19 Analysis',
       date: 'December 2021',
-      description: 'Research project on user engagement in online communities during COVID-19 pandemic. ' 
-      + 'Focuses on sentiment analysis of news titles and the comments following each video.' 
-      + 'We find that longer titles and sad emotions can obtain more likes on the comments of COVID-19 related news. '
-      + 'During the pandemic, people tend to show their support when they find others are quite sad. ' 
-      + 'We also expect to see correlations between some positive appraisals and user engagement.',
+      description: 'Conducted a research project on user engagement in online communities during the COVID-19 pandemic, ' 
+      + 'with a focus on sentiment analysis of news video titles and corresponding user comments. ' 
+      + 'Discovered that longer titles and sad emotional tones were positively correlated with higher engagement ' 
+      + '(e.g., more comment likes), indicating empathetic behaviour among users during the crisis. ' 
+      + 'Also explored potential links between positive sentiment and engagement, offering insights into emotional triggers for online interaction.',
       mediaType: 'image',
       media: './Conference Paper.jpg',
       link: 'https://aisel.aisnet.org/iceb2021/70/'
