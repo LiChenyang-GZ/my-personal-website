@@ -15,7 +15,9 @@ const WebProjects = () => {
     {
       title: 'Personal Website',
       date: 'April 2025',
-      description: 'A responsive personal portfolio website built with React and Material-UI.',
+      description: 'A beautiful website built with React, MUI, and EmailJS, to showcase my portfolio and skills.' 
+      + 'Implemented interactive features such as expandable project cards with image/video support and a timeline component.'
+      + 'Integrated EmailJS to enable direct messaging through the website.',
       mediaType: 'image',
       media: './personal-website.jpg',
       link: 'https://lichenyang-gz.github.io/my-personal-website/'
@@ -33,7 +35,8 @@ const WebProjects = () => {
     {
         title: 'Inkball game',
         date: 'Octorber 2024',
-        description: 'A video game built with Gradle 9.0 and Java 8.0. It is the final project of COMP9003(object-oriented programming)',
+        description: 'Used Gradle to recreate the Windows Vista game. The game involves drawing lines to guide balls into the correct holes while following specific game mechanics. ' 
+        + 'It features similar visuals and mechanics to the original game. Used JUnit for testing. With 85% Missed Instructions and 70% Missed Branches.',
         mediaType: 'video',
         media: './inkballVideo.mp4',
         poster: './inkball.jpg',

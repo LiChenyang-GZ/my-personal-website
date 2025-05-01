@@ -103,7 +103,7 @@ const Contact = () => {
     {
       icon: <LinkedInIcon />,
       title: 'LinkedIn',
-      link: 'https://www.linkedin.com/in/chenyang-li-8992a3320/'
+      link: 'https://www.linkedin.com/in/christy-li-8992a3320/'
     },
     {
       icon: <GitHubIcon />,
