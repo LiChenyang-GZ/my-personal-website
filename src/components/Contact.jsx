@@ -53,7 +53,7 @@ const Contact = () => {
       form.current,
       'JA5RlaOXygWBSKYJI'
     )
-      .then((result) => {
+      .then(() => {
         setSnackbarMessage('Your message has been sent successfully!');
         setSnackbarSeverity('success');
         setOpenSnackbar(true);
@@ -64,7 +64,7 @@ const Contact = () => {
           message: ''
         });
       })
-      .catch((error) => {
+      .catch(() => {
         setSnackbarMessage('Failed to send message. Please try again later.');
         setSnackbarSeverity('error');
         setOpenSnackbar(true);
