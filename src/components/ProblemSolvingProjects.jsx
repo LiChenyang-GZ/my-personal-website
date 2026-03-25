@@ -1,6 +1,6 @@
 import { Container, Box, Typography, Card, CardContent, CardMedia, CardActions, Button, Grid, Divider } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const ProblemSolvingProjects = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
@@ -59,6 +59,8 @@ const ProblemSolvingProjects = () => {
       return false;
     });
     setShowMoreButtons(buttonsVisibility);
+    // projects is static for the lifetime of this component.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [expandedIndex]); // 只在 expandedIndex 改变时重新计算
 
   return (

@@ -67,6 +67,8 @@ const WebProjects = () => {
       return false;
     });
     setShowMoreButtons(buttonsVisibility);
+    // projects is static for the lifetime of this component.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [expandedIndex]); // 只在 expandedIndex 改变时重新计算
 
   return (

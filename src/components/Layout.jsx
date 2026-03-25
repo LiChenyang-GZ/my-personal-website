@@ -1,117 +1,65 @@
-import { Box, Container, Typography, Avatar, AppBar, Toolbar, Button } from '@mui/material';
-import { Link as RouterLink, Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
+
+const navItems = [
+  { label: 'Home', sectionId: 'home' },
+  { label: 'About', sectionId: 'about' },
+  { label: 'Projects', sectionId: 'projects' },
+  { label: 'Experience', sectionId: 'experience' },
+  { label: 'GitHub', sectionId: 'github' },
+  { label: 'Contact', sectionId: 'contact' },
+];
 
 const Layout = () => {
+  const navigate = useNavigate();
   const location = useLocation();
-  
-  const navItems = [
-    { title: 'Home', path: 'home' },
-    { title: 'About', path: 'about' },
-    { title: 'Education', path: 'education' },
-    { title: 'Experience', path: 'experience' },
-    { title: 'Projects', path: 'projects' },
-    { title: 'Contact', path: 'contact' }
-  ];
+
+  const scrollToSection = (sectionId) => {
+    const target = document.getElementById(sectionId);
+
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handleNavClick = (sectionId) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      window.setTimeout(() => scrollToSection(sectionId), 100);
+      return;
+    }
+
+    scrollToSection(sectionId);
+  };
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      {/* 顶部导航栏 */}
-      <AppBar position="fixed" color="default" elevation={3}>
-        <Toolbar>
-          <Typography 
-            variant="h6" 
-            component={RouterLink}
-            to="home"
-            sx={{ 
-              flexGrow: 1,
-              color: 'inherit',
-              textDecoration: 'none'
-            }}
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--ink)]">
+      <header className="sticky top-0 z-50 border-b border-black/5 bg-[rgba(248,241,232,0.78)] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+          <button
+            type="button"
+            onClick={() => handleNavClick('home')}
+            className="font-display text-xl font-bold tracking-tight"
           >
-            Christy's Personal Website
-          </Typography>
-          <Box sx={{ display: 'flex', gap: 2 }}>
+            Christy Li
+          </button>
+
+          <nav className="hidden items-center gap-1 md:flex">
             {navItems.map((item) => (
-              <Button
-                key={item.path}
-                component={RouterLink}
-                to={item.path}
-                color="inherit"
-                sx={{
-                  fontWeight: location.pathname === `/${item.path}` ? 'bold' : 'normal',
-                  borderBottom: location.pathname === `/${item.path}` ? '2px solid' : 'none',
-                  borderColor: 'primary.main',
-                  borderRadius: 0
-                }}
+              <button
+                key={item.sectionId}
+                type="button"
+                onClick={() => handleNavClick(item.sectionId)}
+                className="rounded-full px-4 py-2 text-sm font-semibold text-[var(--muted)] transition hover:bg-black/5 hover:text-[var(--ink)]"
               >
-                {item.title}
-              </Button>
+                {item.label}
+              </button>
             ))}
-          </Box>
-        </Toolbar>
-      </AppBar>
-      <Toolbar /> {/* 这个空的Toolbar用来占位，防止内容被固定导航栏遮挡 */}
+          </nav>
+        </div>
+      </header>
 
-      {/* 主要内容区域 */}
-      <Box sx={{ display: 'flex', flex: 1 }}>
-        {/* 左侧个人信息栏 */}
-        <Box
-          sx={{
-            width: '300px',
-            backgroundColor: '#f5f5f5',
-            p: 4,
-            position: 'fixed',
-            height: 'calc(100vh - 64px)',
-            overflowY: 'auto',
-            top: '64px'
-          }}
-        >
-          <Box sx={{ textAlign: 'center', mb: 4 }}>
-            <Avatar
-              src="photo.png"
-              sx={{
-                width: 150,
-                height: 150,
-                margin: '0 auto 20px',
-                border: '3px solid white',
-                boxShadow: '0 0 20px rgba(0,0,0,0.1)'
-              }}
-            />
-            <Typography variant="h5" component="h2" gutterBottom>
-              Chenyang Li (Christy)
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Software Developer
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-              Lichenyang_christy@outlook.com
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mt: "60px", textAlign: 'left' }}>
-              Hi, I'm Christy! I am a Master student studying Computer Science at the University of Sydney.
-            </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mt: 1, textAlign: 'left' }}>
-              Previously, I studied E-Business and Information Systems and worked as a data analyst intern in a Marketing-AI company
-              and an Algorithm Engineer in an Environmental Technology company. 
-            </Typography>
-          </Box>
-        </Box>
-
-        {/* 右侧内容区域 */}
-        <Box
-          sx={{
-            flexGrow: 1,
-            ml: '300px',
-            p: 4,
-            backgroundColor: '#ffffff',
-            minHeight: 'calc(100vh - 64px)'
-          }}
-        >
-          <Container maxWidth="lg">
-            <Outlet />
-          </Container>
-        </Box>
-      </Box>
-    </Box>
+      <Outlet />
+    </div>
   );
 };
 
