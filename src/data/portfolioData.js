@@ -166,7 +166,7 @@ export const timelineItems = [
     subtitle: 'Guangdong Create Environmental Technology Co., Ltd.',
     detail:
       'Worked on LLM applications, machine learning monitoring, water-quality warning models using Isolation Forest and LSTM, and computer vision systems based on YOLOv5.',
-    tags: ['LLM', 'XGBoost', 'LSTM', 'YOLOv5'],
+    tags: ['LLM', 'LangChain', 'LSTM', 'YOLOv5'],
   },
   {
     time: '07/2024 - 09/2026',
@@ -177,7 +177,7 @@ export const timelineItems = [
     tags: ['Architecture', 'Distributed Systems', 'Cloud'],
   },
   {
-    time: '08/2025 - Present',
+    time: '08/2025 - 12/2025',
     title: 'Web Developer Internship',
     subtitle: 'BuildLess.online, Sydney',
     detail:
@@ -185,11 +185,19 @@ export const timelineItems = [
     tags: ['React', 'Firebase', 'Testing'],
   },
   {
+    time: '07/2025 - Present',
+    title: 'Team Lead',
+    subtitle: 'Blotz Task mobile App, Sydney',
+    detail:
+      'Developed an AI-powered productivity app with React Native, .NET Core, and Azure',
+    tags: ['React Native', ' .NET Core', 'Azure'],
+  },
+  {
     time: '09/2025 - Present',
     title: 'Technology Officer',
     subtitle: 'Skill Swap Club, The University of Sydney',
     detail:
-      'Contributed to backend design with Spring Boot, supported the React frontend, and implemented APIs, role-based access, and participation workflows.',
-    tags: ['Spring Boot', 'React', 'Supabase', 'Agile'],
+      'Leading the development of a skill-sharing platform for Skill Swap Club, built with Spring Boot, React, and Supabase, deployed with Vercel and Render. Managing a small team and iterating based on user/club president feedback.',
+    tags: ['Spring Boot', 'React', 'Supabase', 'Vercel', 'Render'],
   },
 ];
