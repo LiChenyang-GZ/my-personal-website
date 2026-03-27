@@ -38,7 +38,7 @@ const Layout = () => {
           <button
             type="button"
             onClick={() => handleNavClick('home')}
-            className="font-display text-xl font-bold tracking-tight"
+            className="text-xl font-bold tracking-tight"
           >
             Christy Li
           </button>
