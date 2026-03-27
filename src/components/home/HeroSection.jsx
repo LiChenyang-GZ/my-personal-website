@@ -9,10 +9,11 @@ const HeroSection = ({ introIndex, introMessages }) => (
             Available for internships & graduate roles · Sydney, AU
           </p>
           <h1 className="mt-6 text-6xl font-bold leading-[0.9] tracking-tight md:text-[7.5rem]">
-            Web Developer
-            <br className="hidden md:block" />
-            <span className="text-[var(--accent)]"> & AI Builder</span>
+            Hi, I'm Christy
           </h1>
+          <p className="mt-5 text-2xl font-semibold tracking-tight text-[var(--muted)] md:text-4xl">
+            Web Developer <span className="text-[var(--accent)]">&amp; AI Builder</span>
+          </p>
           <div className="mt-7 min-h-[88px] max-w-3xl">
             <p key={introIndex} className="animate-fade-slide text-[1.45rem] leading-[1.8] text-[var(--muted)]">
               {introMessages[introIndex]}

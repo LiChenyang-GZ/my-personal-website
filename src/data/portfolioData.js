@@ -44,29 +44,29 @@ export const aboutSkills = [
 ];
 
 export const introMessages = [
-  'Software engineer building modern web products.',
+  'Full-stack engineer focused on scalable systems and real-world products.',
   'AI application developer focused on practical systems.',
   'Interested in clean interfaces, cloud workflows, and product-minded engineering.',
 ];
 
 export const tickerSkills = [
-  'Java',
-  'Python',
-  'JavaScript',
   'TypeScript',
-  'HTML',
-  'CSS',
   'React',
+  'React Native',
   'Next.js',
   'Node.js',
+  'Spring Boot',
+  'Java',
+  'Python',
   'SQL',
   'PostgreSQL',
-  'Tailwind CSS',
-  'Spring Boot',
+  'MongoDB',
   'AWS',
+  'Azure',
+  'Docker',
   'Firebase',
   'Supabase',
-  'Docker',
+  'Tailwind CSS',
   'Playwright',
   'Jest',
   'LangChain',
