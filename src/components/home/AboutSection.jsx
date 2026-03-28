@@ -30,6 +30,9 @@ const AboutSection = ({ aboutSkills, hoveredSkill, setHoveredSkill }) => (
         <p className="text-center text-xs font-extrabold uppercase tracking-[0.22em] text-[var(--accent)]">
           Profile
         </p>
+        <div className="mx-auto mt-6 h-24 w-24 overflow-hidden rounded-full border-4 border-white shadow-lg">
+          <img src="./photo.png" alt="Christy Li" className="h-full w-full object-cover" />
+        </div>
         <h3 className="mt-4 text-center text-5xl font-bold tracking-tight md:text-6xl">
           {hoveredSkill ? hoveredSkill.title : 'Christy Li'}
         </h3>
