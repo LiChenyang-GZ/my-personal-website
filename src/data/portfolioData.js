@@ -1,46 +1,76 @@
 export const aboutSkills = [
   {
-    label: 'Frontend',
-    title: 'Frontend Development',
-    description:
-      'Building clear, responsive interfaces with React, Next.js, TypeScript, and interaction design that feels deliberate.',
-    accent: '#ff7a59',
-  },
-  {
     label: 'Full Stack',
-    title: 'Full Stack Engineering',
+    title: 'End-to-End Product Engineering',
     description:
-      'Working across UI, backend services, APIs, state management, and product logic to ship useful software.',
+      'Building complete applications from idea to production.',
+    subDescription: [
+      'Frontend–backend integration and system flow',
+      'Feature design aligned with real user workflows',
+      'Web and mobile application delivery',
+    ],
     accent: '#8b5cf6',
   },
   {
-    label: 'Cloud',
-    title: 'Cloud and Deployment',
+    label: 'Frontend',
+    title: 'Frontend & Interaction',
     description:
-      'Using AWS services such as Lambda, SNS, S3, EC2, and Aurora MySQL for scalable and production-minded systems.',
-    accent: '#f59e0b',
+      'Designing clean and responsive user interfaces.',
+    subDescription: [
+      'Component-based UI with React and TypeScript',
+      'Interaction design, animation, and smooth user experience',
+      'State management and UI architecture',
+    ],
+    accent: '#ff7a59',
   },
   {
-    label: 'AI Apps',
-    title: 'AI Application Development',
+    label: 'Backend',
+    title: 'Backend & System Design',
     description:
-      'Applying LangChain, ChatGLM3, and retrieval workflows to build practical tools instead of one-off demos.',
-    accent: '#ec4899',
-  },
-  {
-    label: 'Database',
-    title: 'Database Systems',
-    description:
-      'Working with PostgreSQL, Firebase, Supabase, SQL, schema design, and data flows that support real features.',
+      'Designing scalable backend systems and APIs.',
+    subDescription: [
+      'API design and business logic implementation',
+      'Database schema design and data consistency',
+      'Authentication and backend architecture',
+    ],
     accent: '#14b8a6',
   },
   {
-    label: 'Testing',
-    title: 'Testing and Quality',
+    label: 'Distributed',
+    title: 'Distributed Systems',
     description:
-      'Using Playwright, Jest, and test-oriented workflows to make software more reliable and maintainable.',
-    accent: '#38bdf8',
+      'Handling service communication and system reliability.',
+    subDescription: [
+      'Distributed transactions (Saga, Outbox)',
+      'Event-driven architecture and message queues',
+      'Failure handling and retry mechanisms',
+    ],
+    accent: '#f43f5e',
   },
+  {
+    label: 'Cloud',
+    title: 'Cloud-Native Systems',
+    description:
+      'Building scalable systems on cloud infrastructure.',
+    subDescription: [
+      'Auto-scaling and load-balanced architectures',
+      'Serverless workflows',
+      'Deployment and production environment setup',
+    ],
+    accent: '#f59e0b',
+  },
+  {
+    label: 'AI',
+    title: 'AI System Integration',
+    description:
+      'Applying AI to real-world software systems.',
+    subDescription: [
+      'RAG pipelines and knowledge base design',
+      'Prompt design and hallucination control',
+      'LLM integration into production workflows',
+    ],
+    accent: '#ec4899',
+  }
 ];
 
 export const introMessages = [
@@ -77,69 +107,143 @@ export const projects = [
     title: 'Blotz Task',
     period: '07/2025 - Present',
     status: 'In Progress',
+    focus: 'Full-Stack Product Engineering',
     summary:
-      'A full-stack task management app spanning web and mobile-style interactions, designed around productivity and smooth UI behavior.',
-    details:
-      'Built a React + Next.js frontend with Zustand and Tailwind CSS, connected it to a .NET Core backend with SQL Server, and added features including drag calendar views, subtasks sheets, Lottie-based AI interactions, swipe actions, and a points-based progress system.',
-    tech: ['React', 'Next.js', 'TypeScript', 'Zustand', 'Tailwind CSS', '.NET Core'],
-    image: './personal-website.jpg',
+      'A task management app for ADHD people, designed around smooth UI behavior and AI-assisted task breakdown to help users move step by step toward completion.',
+    tech: ['React Native', 'TypeScript', 'Tailwind CSS', '.NET Core', 'C#', 'SQL Server', 'Azure'],
     link: 'https://github.com/LiChenyang-GZ',
+    accent: 'from-[#ffede7] to-[#fff8f2]',
+    cards: [
+      {
+        title: 'Managing Complex UI Interactions',
+        problem:
+          'Complex interactions across calendar views, subtasks, and gestures can easily become inconsistent.',
+        solution:
+          'Designed a unified interaction system supporting scheduling, nested subtasks, and gesture-based actions.',
+      },
+      {
+        title: 'Synchronizing UI State and Data',
+        problem:
+          'Keeping UI state consistent with backend data becomes difficult in dynamic interfaces.',
+        solution:
+          'Implemented structured state management to keep user actions and application state synchronized.',
+      },
+      {
+        title: 'Scaling Feature Logic',
+        problem:
+          'Embedding logic in the frontend limits flexibility and scalability.',
+        solution:
+          'Designed backend-driven reward and evaluation systems to support extensible feature development.',
+      },
+    ],
   },
   {
     title: 'Distributed E-commerce Platform',
     period: '10/2025',
-    status: 'Course Project',
+    status: 'Finished',
+    focus: 'Distributed Systems & Reliability',
     summary:
-      'A distributed commerce platform built to explore reliability, transaction consistency, and maintainable microservice architecture.',
-    details:
-      'Designed a Spring Boot + RabbitMQ + PostgreSQL system with separated store, bank, and delivery services. Implemented Outbox Pattern, Saga compensation, retry logic, and dead-letter queues, while keeping the Java backend layered and maintainable with JPA/Hibernate and DTO-based design.',
+      'A microservices-based e-commerce system designed to handle distributed transactions, service decoupling, and fault tolerance in a scalable architecture.',
     tech: ['Java', 'Spring Boot', 'RabbitMQ', 'PostgreSQL', 'Saga', 'Microservices'],
-    image: './B2YBooks Online Store.jpg',
+    link: 'https://github.com/LiChenyang-GZ',
+    accent: 'from-[#efe8ff] to-[#fbf8ff]',
+    cards: [
+      {
+        title: 'Handling Distributed Transaction Consistency',
+        problem:
+          'Ensuring data consistency across multiple services is difficult when failures occur mid-process.',
+        solution:
+          'Implemented Saga pattern with an Outbox mechanism to guarantee eventual consistency and reliable message delivery.',
+      },
+      {
+        title: 'Ensuring Reliable Message Processing',
+        problem:
+          'Message queues can result in data loss or duplication under failure scenarios.',
+        solution:
+          'Designed retry logic, manual acknowledgment, and dead-letter queues to ensure reliable event handling.',
+      },
+      {
+        title: 'Reducing Service Coupling',
+        problem:
+          'Tightly coupled services limit scalability and increase failure impact.',
+        solution:
+          'Adopted an event-driven architecture using RabbitMQ to decouple services and improve system resilience.',
+      },
+    ],
   },
   {
-    title: 'AWS Image Captioning Platform',
+    title: 'AWS Image Processing Platform',
     period: '05/2025',
-    status: 'Cloud Project',
+    status: 'Finished',
+    focus: 'Cloud Architecture & Scalability',
     summary:
-      'A cloud-native image processing platform built around scaling, automation, and service orchestration on AWS.',
-    details:
-      'Deployed a Flask app on auto-scaling EC2 instances behind an ALB, used Lambda and SNS for asynchronous caption generation, stored media on S3, managed relational data with Aurora MySQL, and tested performance and fault tolerance under load.',
-    tech: ['AWS EC2', 'Lambda', 'SNS', 'S3', 'Aurora MySQL', 'Flask'],
-    image: './web-dev.avif',
+      'A cloud-native system for scalable image processing, combining auto-scaling infrastructure with event-driven serverless workflows.',
+    tech: ['AWS', 'EC2', 'Lambda', 'SNS', 'S3', 'Aurora MySQL', 'Flask'],
+    accent: 'from-[#e8f7f3] to-[#f8fffd]',
+    cards: [
+      {
+        title: 'Scaling Under Variable Load',
+        problem:
+          'Handling unpredictable traffic requires dynamic scaling of resources.',
+        solution:
+          'Used Auto Scaling Groups and an Application Load Balancer to maintain performance and availability.',
+      },
+      {
+        title: 'Avoiding Blocking Processing',
+        problem:
+          'Synchronous workflows reduce system responsiveness and scalability.',
+        solution:
+          'Designed an asynchronous pipeline using Lambda and SNS to process tasks efficiently.',
+      },
+      {
+        title: 'Decoupling Cloud Services',
+        problem:
+          'Tightly connected services reduce flexibility and increase failure propagation.',
+        solution:
+          'Separated storage, processing, and notification using S3, Lambda, and SNS.',
+      },
+    ],
   },
   {
-    title: 'BuildLess Internship',
-    period: '08/2025 - Present',
-    status: 'Internship',
-    summary:
-      'Interactive product work for a startup using React, Tailwind CSS, Firebase, and automated testing infrastructure.',
-    details:
-      'Implemented modular frontend features, validated behavior with the Firebase emulator suite, improved quality with Playwright and Jest, and worked closely with developers and the product owner through agile iteration.',
-    tech: ['TypeScript', 'React', 'Tailwind CSS', 'Firebase', 'Playwright', 'Jest'],
-    image: './web-dev.jpg',
-  },
-  {
-    title: 'Onboarding AI Assistant',
+    title: 'AI Onboarding Assistant',
     period: '2023',
     status: 'AI Application',
+    focus: 'AI Systems & RAG Pipelines',
     summary:
-      'An internal chatbot built to help automate onboarding and policy Q&A with retrieval-based AI support.',
-    details:
-      'Used LangChain, ChatGLM3, vector retrieval, and document chunking to create a Gradio-based assistant that answered employee questions and reduced repetitive HR support work.',
+      'An AI-powered assistant built with retrieval-augmented generation to automate document-based question answering and reduce repetitive support tasks.',
     tech: ['LangChain', 'ChatGLM3', 'Gradio', 'RAG'],
-    image: './ConversationLLM.jpg',
-  },
-  {
-    title: 'Personal Website',
-    period: '2025',
-    status: 'Portfolio',
-    summary:
-      'A personal website designed to present my work, experience, and technical direction with stronger visual hierarchy and interaction.',
-    details:
-      'This portfolio is being redesigned around a better first screen, a cleaner about module, smaller project cards with detail sheets, a more readable experience timeline, and a simpler letter-style contact section.',
-    tech: ['React', 'Tailwind CSS', 'EmailJS', 'UI Design'],
-    image: './web-dev.avif',
     link: 'https://lichenyang-gz.github.io/my-personal-website/',
+    accent: 'from-[#ffeef7] to-[#fff9fc]',
+    cards: [
+      {
+        title: 'Designing Effective Knowledge Retrieval',
+        problem:
+          'Retrieval quality can degrade when knowledge base documents are poorly structured or overly aggregated.',
+        solution:
+          'Improved retrieval effectiveness by restructuring documents into smaller, semantically coherent chunks so relevant context is prioritized.',
+      },
+      {
+        title: 'Controlling LLM Hallucination',
+        problem:
+          'LLMs may generate confident but incorrect answers when information is missing or ambiguous.',
+        solution:
+          'Designed prompt strategies to enforce fallback behavior and reduce hallucinated responses.',
+      },
+      {
+        title: 'Handling Knowledge Conflicts & Priority',
+        problem:
+          'Overlapping or conflicting information across documents can reduce answer accuracy.',
+        solution:
+          'Adjusted document granularity and structure to improve relevance scoring and information prioritization.',
+      },
+      {
+        title: 'Building End-to-End AI Integration',
+        problem:
+          'AI systems require more than model access to be usable in real scenarios.',
+        solution:
+          'Integrated knowledge base, plugin orchestration, and API-based querying to build a complete, usable assistant system.',
+      },
+    ],
   },
 ];
 
@@ -150,7 +254,7 @@ export const timelineItems = [
     subtitle: 'Beijing Normal - Hong Kong Baptist University',
     detail:
       'Built the foundation in information systems, database management, algorithm design, and big data applications, graduating with Second Class Division I honors.',
-    tags: ['Information Systems', 'Database', 'Algorithms'],
+    tags: ['Business', 'Information Systems', 'Database', 'Algorithms'],
   },
   {
     time: '12/2021',
@@ -159,6 +263,14 @@ export const timelineItems = [
     detail:
       'Published research on user engagement in online communities during COVID-19, focused on sentiment analysis and online interaction patterns.',
     tags: ['Research', 'Publication', 'Sentiment Analysis'],
+  },
+  {
+    time: '01/2022 - 06/2022',
+    title: 'Data Analysis Intern',
+    subtitle: 'Shanghai MarcPoint Technology Co., Ltd.',
+    detail:
+      'Analysed user behaviour and brand perception on social media, developing data-driven insights to support business and marketing decisions. Built analytical workflows to identify high-risk user patterns and evaluate brand reputation using metrics such as audience size, engagement, and loyalty.',
+    tags: ['Data Analysis', 'Python', 'PostgreSQL', 'Tableau'],
   },
   {
     time: '09/2022 - 04/2024',

@@ -1,49 +1,206 @@
+import { useState } from 'react';
+/* eslint-disable no-unused-vars */
+import { AnimatePresence, motion } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
 import SectionHeader from './SectionHeader';
 
-const ProjectsSection = ({ projects, onSelectProject }) => (
-  <section id="projects" className="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-20">
-    <ScrollReveal>
-      <SectionHeader eyebrow="Projects" title="Selected projects" />
-    </ScrollReveal>
+const artStyles = [
+  'from-[#ffe08a] to-[#ffd6c3]',
+  'from-[#ffdbe8] to-[#ffcfe0]',
+  'from-[#d7f2ef] to-[#cfe8ff]',
+  'from-[#eadbff] to-[#ffe7bb]',
+];
 
-    <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-      {projects.map((project) => (
-        <ScrollReveal key={project.title}>
-          <button
-            type="button"
-            onClick={() => onSelectProject(project)}
-            className="flex h-full flex-col overflow-hidden rounded-[28px] border border-[var(--line)] bg-[rgba(255,251,246,0.88)] text-left shadow-[0_18px_45px_rgba(88,58,34,0.08)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_55px_rgba(88,58,34,0.14)]"
-          >
-            <div
-              className="h-[190px] bg-cover bg-center"
-              style={{ backgroundImage: `url("${project.image}")` }}
-            />
-            <div className="flex h-full flex-col p-5">
-              <div className="flex items-center justify-between gap-3">
-                <span className="rounded-full bg-[rgba(255,122,89,0.12)] px-3 py-1 text-[0.72rem] font-extrabold uppercase tracking-[0.12em] text-[var(--accent)]">
-                  {project.status}
-                </span>
-                <span className="text-sm text-[var(--muted)]">{project.period}</span>
+const solutionStyles = [
+  'from-[#ffdbe8] to-[#f7c6e8]',
+  'from-[#d4eef8] to-[#badcf3]',
+  'from-[#f6dfd3] to-[#f2d1c3]',
+  'from-[#ddd4ff] to-[#ead7ff]',
+];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.06,
+    },
+  },
+  exit: {
+    transition: {
+      staggerChildren: 0.05,
+      staggerDirection: -1,
+    },
+  },
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95, filter: 'blur(6px)' },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    filter: 'blur(0px)',
+    transition: { duration: 0.48, ease: 'easeOut' },
+  },
+  exit: {
+    opacity: 0,
+    y: 18,
+    scale: 0.98,
+    filter: 'blur(4px)',
+    transition: { duration: 0.24, ease: 'easeIn' },
+  },
+};
+
+const ProjectsSection = ({ projects }) => {
+  const [expandedProject, setExpandedProject] = useState(projects[0]?.title ?? null);
+
+  return (
+    <section id="projects" className="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-20">
+      <ScrollReveal>
+        <SectionHeader eyebrow="Projects" title="My projects" />
+      </ScrollReveal>
+
+      <div className="space-y-8">
+        {projects.map((project, projectIndex) => {
+          const isExpanded = expandedProject === project.title;
+
+          return (
+            <ScrollReveal key={project.title}>
+              <div className="rounded-[34px] border border-[var(--line)] bg-[rgba(255,251,246,0.9)] p-6 shadow-[0_24px_60px_rgba(88,58,34,0.1)] md:p-8">
+                <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
+                  <div className="max-w-3xl">
+                    <div className="flex flex-wrap items-center gap-3">
+                      <span className="rounded-full bg-[rgba(255,122,89,0.12)] px-3 py-1 text-[0.72rem] font-extrabold uppercase tracking-[0.12em] text-[var(--accent)]">
+                        {project.status}
+                      </span>
+                      <span className="text-sm font-medium text-[var(--muted)]">{project.period}</span>
+                      <span className="text-sm font-medium text-[var(--muted)]">{project.focus}</span>
+                    </div>
+
+                    <h3 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl">
+                      {project.title}
+                    </h3>
+                    <p className="mt-4 max-w-2xl text-base leading-8 text-[var(--muted)]">
+                      {project.summary}
+                    </p>
+
+                    <div className="mt-5 flex flex-wrap gap-2.5">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-full border border-black/5 bg-white/80 px-3.5 py-1.5 text-sm font-semibold transition duration-200 hover:scale-105"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-3">
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center rounded-full border border-[var(--line-strong)] bg-white/85 px-5 py-3 font-semibold transition duration-200 hover:-translate-y-px hover:bg-white"
+                      >
+                        View project
+                      </a>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setExpandedProject((current) =>
+                          current === project.title ? null : project.title
+                        )
+                      }
+                      className="inline-flex items-center rounded-full bg-[var(--accent)] px-5 py-3 font-semibold text-white transition duration-200 hover:-translate-y-px hover:bg-[#ff6c47]"
+                    >
+                      {isExpanded ? 'Hide details' : 'Show details'}
+                    </button>
+                  </div>
+                </div>
+
+                <AnimatePresence initial={false}>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                      animate={{ opacity: 1, height: 'auto', marginTop: 28 }}
+                      exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                      transition={{ duration: 0.42, ease: 'easeInOut' }}
+                      className="overflow-hidden"
+                    >
+                      <div
+                        className={
+                          project.cards.length >= 4
+                            ? 'overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden'
+                            : 'mx-auto max-w-[1180px]'
+                        }
+                      >
+                        <motion.div
+                          variants={containerVariants}
+                          initial="hidden"
+                          animate="visible"
+                          exit="exit"
+                          className={
+                            project.cards.length >= 4
+                              ? 'flex min-w-max gap-4'
+                              : `grid gap-4 ${
+                                  project.cards.length <= 2
+                                    ? 'md:grid-cols-2'
+                                    : 'md:grid-cols-2 xl:grid-cols-3'
+                                }`
+                          }
+                        >
+                          {project.cards.map((card, cardIndex) => (
+                            <motion.article
+                              key={card.title}
+                              variants={cardVariants}
+                              className={`flex min-h-[340px] flex-col overflow-hidden rounded-[28px] border border-[rgba(39,31,27,0.07)] bg-[rgba(255,253,250,0.99)] shadow-[0_8px_20px_rgba(88,58,34,0.035)] ${
+                                project.cards.length >= 4 ? 'w-[340px] shrink-0' : 'w-full'
+                              }`}
+                            >
+                              <div
+                                className={`h-3 w-full bg-gradient-to-r ${artStyles[(projectIndex + cardIndex) % artStyles.length]}`}
+                              />
+
+                              <div className="flex h-full flex-col p-5">
+                                <div className="min-h-[108px]">
+                                  <h4 className="text-[1.55rem] font-bold leading-tight tracking-tight text-[var(--ink)]">
+                                    {card.title}
+                                  </h4>
+                                </div>
+
+                                <div className="min-h-[104px]">
+                                  <p className="text-[0.98rem] leading-7 text-[var(--muted)]">
+                                    {card.problem}
+                                  </p>
+                                </div>
+
+                                <div
+                                  className={`mt-4 rounded-[22px] bg-gradient-to-br ${solutionStyles[(projectIndex + cardIndex) % solutionStyles.length]} p-4`}
+                                >
+                                  <p className="text-[0.94rem] leading-7 text-[var(--ink)]">
+                                    <span className="mr-1">💡</span>
+                                    {card.solution}
+                                  </p>
+                                </div>
+                              </div>
+                            </motion.article>
+                          ))}
+                        </motion.div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-              <h3 className="mt-4 text-2xl font-bold">{project.title}</h3>
-              <p className="mt-3 text-[15px] leading-7 text-[var(--muted)]">{project.summary}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {project.tech.slice(0, 4).map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-[var(--line)] bg-white/75 px-3 py-1.5 text-xs font-bold transition duration-200 group-hover:scale-105"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </button>
-        </ScrollReveal>
-      ))}
-    </div>
-  </section>
-);
+            </ScrollReveal>
+          );
+        })}
+      </div>
+    </section>
+  );
+};
 
 export default ProjectsSection;

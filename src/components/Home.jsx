@@ -10,7 +10,6 @@ import {
 import HeroSection from './home/HeroSection';
 import AboutSection from './home/AboutSection';
 import ProjectsSection from './home/ProjectsSection';
-import ProjectModal from './home/ProjectModal';
 import ExperienceSection from './home/ExperienceSection';
 import GithubSection from './home/GithubSection';
 import ContactSection from './home/ContactSection';
@@ -19,7 +18,6 @@ import TickerBar from './home/TickerBar';
 const Home = () => {
   const formRef = useRef(null);
   const [hoveredSkill, setHoveredSkill] = useState(null);
-  const [selectedProject, setSelectedProject] = useState(null);
   const [introIndex, setIntroIndex] = useState(0);
   const [formData, setFormData] = useState({
     user_name: '',
@@ -36,26 +34,6 @@ const Home = () => {
 
     return () => window.clearInterval(interval);
   }, []);
-
-  useEffect(() => {
-    if (!selectedProject) {
-      return undefined;
-    }
-
-    const handleKeydown = (event) => {
-      if (event.key === 'Escape') {
-        setSelectedProject(null);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeydown);
-    document.body.style.overflow = 'hidden';
-
-    return () => {
-      window.removeEventListener('keydown', handleKeydown);
-      document.body.style.overflow = '';
-    };
-  }, [selectedProject]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -101,7 +79,7 @@ const Home = () => {
           hoveredSkill={hoveredSkill}
           setHoveredSkill={setHoveredSkill}
         />
-        <ProjectsSection projects={projects} onSelectProject={setSelectedProject} />
+        <ProjectsSection projects={projects} />
         <ExperienceSection timelineItems={timelineItems} />
         <GithubSection />
         <ContactSection
@@ -120,7 +98,6 @@ const Home = () => {
       </main>
 
       <TickerBar tickerSkills={tickerSkills} />
-      <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </>
   );
 };
