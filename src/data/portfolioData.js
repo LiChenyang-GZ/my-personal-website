@@ -1,46 +1,76 @@
 export const aboutSkills = [
   {
-    label: 'Frontend',
-    title: 'Frontend Development',
-    description:
-      'Building clear, responsive interfaces with React, Next.js, TypeScript, and interaction design that feels deliberate.',
-    accent: '#ff7a59',
-  },
-  {
     label: 'Full Stack',
-    title: 'Full Stack Engineering',
+    title: 'End-to-End Product Engineering',
     description:
-      'Working across UI, backend services, APIs, state management, and product logic to ship useful software.',
+      'Building complete applications from idea to production.',
+    subDescription: [
+      'Frontend–backend integration and system flow',
+      'Feature design aligned with real user workflows',
+      'Web and mobile application delivery',
+    ],
     accent: '#8b5cf6',
   },
   {
-    label: 'Cloud',
-    title: 'Cloud and Deployment',
+    label: 'Frontend',
+    title: 'Frontend & Interaction',
     description:
-      'Using AWS services such as Lambda, SNS, S3, EC2, and Aurora MySQL for scalable and production-minded systems.',
-    accent: '#f59e0b',
+      'Designing clean and responsive user interfaces.',
+    subDescription: [
+      'Component-based UI with React and TypeScript',
+      'Interaction design, animation, and smooth user experience',
+      'State management and UI architecture',
+    ],
+    accent: '#ff7a59',
   },
   {
-    label: 'AI Apps',
-    title: 'AI Application Development',
+    label: 'Backend',
+    title: 'Backend & System Design',
     description:
-      'Applying LangChain, ChatGLM3, and retrieval workflows to build practical tools instead of one-off demos.',
-    accent: '#ec4899',
-  },
-  {
-    label: 'Database',
-    title: 'Database Systems',
-    description:
-      'Working with PostgreSQL, Firebase, Supabase, SQL, schema design, and data flows that support real features.',
+      'Designing scalable backend systems and APIs.',
+    subDescription: [
+      'API design and business logic implementation',
+      'Database schema design and data consistency',
+      'Authentication and backend architecture',
+    ],
     accent: '#14b8a6',
   },
   {
-    label: 'Testing',
-    title: 'Testing and Quality',
+    label: 'Distributed',
+    title: 'Distributed Systems',
     description:
-      'Using Playwright, Jest, and test-oriented workflows to make software more reliable and maintainable.',
-    accent: '#38bdf8',
+      'Handling service communication and system reliability.',
+    subDescription: [
+      'Distributed transactions (Saga, Outbox)',
+      'Event-driven architecture and message queues',
+      'Failure handling and retry mechanisms',
+    ],
+    accent: '#f43f5e',
   },
+  {
+    label: 'Cloud',
+    title: 'Cloud-Native Systems',
+    description:
+      'Building scalable systems on cloud infrastructure.',
+    subDescription: [
+      'Auto-scaling and load-balanced architectures',
+      'Serverless workflows',
+      'Deployment and production environment setup',
+    ],
+    accent: '#f59e0b',
+  },
+  {
+    label: 'AI',
+    title: 'AI System Integration',
+    description:
+      'Applying AI to real-world software systems.',
+    subDescription: [
+      'RAG pipelines and knowledge base design',
+      'Prompt design and hallucination control',
+      'LLM integration into production workflows',
+    ],
+    accent: '#ec4899',
+  }
 ];
 
 export const introMessages = [
@@ -224,7 +254,7 @@ export const timelineItems = [
     subtitle: 'Beijing Normal - Hong Kong Baptist University',
     detail:
       'Built the foundation in information systems, database management, algorithm design, and big data applications, graduating with Second Class Division I honors.',
-    tags: ['Information Systems', 'Database', 'Algorithms'],
+    tags: ['Business', 'Information Systems', 'Database', 'Algorithms'],
   },
   {
     time: '12/2021',
@@ -233,6 +263,14 @@ export const timelineItems = [
     detail:
       'Published research on user engagement in online communities during COVID-19, focused on sentiment analysis and online interaction patterns.',
     tags: ['Research', 'Publication', 'Sentiment Analysis'],
+  },
+  {
+    time: '01/2022 - 06/2022',
+    title: 'Data Analysis Intern',
+    subtitle: 'Shanghai MarcPoint Technology Co., Ltd.',
+    detail:
+      'Analysed user behaviour and brand perception on social media, developing data-driven insights to support business and marketing decisions. Built analytical workflows to identify high-risk user patterns and evaluate brand reputation using metrics such as audience size, engagement, and loyalty.',
+    tags: ['Data Analysis', 'Python', 'PostgreSQL', 'Tableau'],
   },
   {
     time: '09/2022 - 04/2024',

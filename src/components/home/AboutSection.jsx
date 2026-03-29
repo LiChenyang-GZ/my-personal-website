@@ -56,14 +56,28 @@ const itemVariants = {
 const iconMap = {
   Frontend: (
     <svg viewBox="0 0 24 24" className="h-12 w-12" fill="none" stroke="currentColor" strokeWidth="1.6">
-      <rect x="3" y="5" width="18" height="14" rx="2.5" />
-      <path d="M7 9h4M7 13h6M13.5 9h3.5" />
+      <path d="M4 6.5h16" />
+      <rect x="3" y="6.5" width="18" height="11.5" rx="2.2" />
+      <path d="M7.5 11.5l2.8-2.8M7.5 11.5l2.8 2.8" />
+      <path d="M16.5 8.7l2.8 2.8M16.5 14.3l2.8-2.8" />
+      <path d="M11.8 15h3" />
     </svg>
   ),
   'Full Stack': (
     <svg viewBox="0 0 24 24" className="h-12 w-12" fill="none" stroke="currentColor" strokeWidth="1.6">
-      <path d="M7 7h10M7 12h10M7 17h10" />
-      <rect x="5" y="4" width="14" height="16" rx="2" />
+      <rect x="4" y="3" width="16" height="18" rx="2.5" />
+      <path d="M4 8.5h16" />
+      <path d="M7 12h4M7 16h6" />
+      <circle cx="15.5" cy="14.5" r="2.2" />
+      <path d="M14.4 14.5h2.2M15.5 13.4v2.2" />
+    </svg>
+  ),
+  Distributed: (
+    <svg viewBox="0 0 24 24" className="h-12 w-12" fill="none" stroke="currentColor" strokeWidth="1.6">
+      <circle cx="6" cy="12" r="2.5" />
+      <circle cx="18" cy="6" r="2.5" />
+      <circle cx="18" cy="18" r="2.5" />
+      <path d="M8.2 11l6.6-4M8.2 13l6.6 4" />
     </svg>
   ),
   Cloud: (
@@ -72,25 +86,31 @@ const iconMap = {
       <path d="M9 15h6" />
     </svg>
   ),
-  'AI Apps': (
+  AI: (
     <svg viewBox="0 0 24 24" className="h-12 w-12" fill="none" stroke="currentColor" strokeWidth="1.6">
       <rect x="6" y="6" width="12" height="12" rx="3" />
       <path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3" />
       <path d="M10 10h4v4h-4z" />
     </svg>
   ),
-  Database: (
+  Data: (
     <svg viewBox="0 0 24 24" className="h-12 w-12" fill="none" stroke="currentColor" strokeWidth="1.6">
       <ellipse cx="12" cy="6" rx="7" ry="3" />
       <path d="M5 6v8c0 1.7 3.1 3 7 3s7-1.3 7-3V6" />
       <path d="M5 10c0 1.7 3.1 3 7 3s7-1.3 7-3" />
     </svg>
   ),
-  Testing: (
+  Quality: (
     <svg viewBox="0 0 24 24" className="h-12 w-12" fill="none" stroke="currentColor" strokeWidth="1.6">
-      <path d="M9 4h6M12 4v7" />
-      <path d="M8 11h8a3.5 3.5 0 0 1 0 7H8a3.5 3.5 0 0 1 0-7Z" />
-      <path d="M9.5 14.5h5" />
+      <path d="M6 12l4 4 8-8" />
+      <rect x="4" y="4" width="16" height="16" rx="3" />
+    </svg>
+  ),
+  Backend: (
+    <svg viewBox="0 0 24 24" className="h-12 w-12" fill="none" stroke="currentColor" strokeWidth="1.6">
+      <ellipse cx="12" cy="6.5" rx="6.8" ry="2.8" />
+      <path d="M5.2 6.5V16c0 1.6 3 2.8 6.8 2.8s6.8-1.2 6.8-2.8V6.5" />
+      <path d="M5.2 11c0 1.6 3 2.8 6.8 2.8s6.8-1.2 6.8-2.8" />
     </svg>
   ),
 };
@@ -140,19 +160,30 @@ const AboutSection = ({ aboutSkills, hoveredSkill, setHoveredSkill }) => (
             </motion.h3>
             <motion.p
               variants={itemVariants}
-              className="mt-4 flex min-h-[3.5rem] items-center justify-center px-2 text-center text-lg leading-relaxed text-[var(--muted)] md:text-2xl"
+              className="mt-4 flex min-h-[3.5rem] items-center justify-center px-2 text-center text-base leading-relaxed text-[var(--muted)] md:text-lg"
             >
               {hoveredSkill
-                ? hoveredSkill.label
+                ? hoveredSkill.description
                 : 'Software engineer with web, cloud, and AI application experience'}
             </motion.p>
             <motion.p
               variants={itemVariants}
-              className="mx-auto mt-6 max-h-[208px] w-full max-w-2xl overflow-y-auto px-1 text-center text-base leading-8 text-[var(--muted)] md:mt-8 md:max-h-[224px] md:text-xl md:leading-9"
+              className="mx-auto mt-6 max-h-[208px] w-full max-w-2xl overflow-y-auto px-1 text-center text-lg leading-8 text-[var(--muted)] md:mt-8 md:max-h-[224px] md:text-xl md:leading-9"
             >
-              {hoveredSkill
-                ? hoveredSkill.description
-                : 'I enjoy building practical software products with clean interfaces, reliable systems, and thoughtful use of AI where it genuinely improves the workflow.'}
+              {hoveredSkill?.subDescription?.length ? (
+                <span className="block text-left ">
+                  {hoveredSkill.subDescription.map((item) => (
+                    <span key={item} className="block">
+                      <span className="mr-3" style={{ color: hoveredSkill.accent }}>
+                        •
+                      </span>
+                      <span>{item}</span>
+                    </span>
+                  ))}
+                </span>
+              ) : (
+                'I enjoy building practical software products with clean interfaces, reliable systems, and thoughtful use of AI where it genuinely improves the workflow.'
+              )}
             </motion.p>
           </motion.div>
         </AnimatePresence>

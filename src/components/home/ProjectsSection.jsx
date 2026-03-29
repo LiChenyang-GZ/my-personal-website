@@ -58,7 +58,7 @@ const ProjectsSection = ({ projects }) => {
   return (
     <section id="projects" className="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-20">
       <ScrollReveal>
-        <SectionHeader eyebrow="Projects" title="Selected projects" />
+        <SectionHeader eyebrow="Projects" title="My projects" />
       </ScrollReveal>
 
       <div className="space-y-8">
