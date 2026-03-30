@@ -54,6 +54,14 @@ const cardVariants = {
 
 const ProjectsSection = ({ projects }) => {
   const [expandedProject, setExpandedProject] = useState(projects[0]?.title ?? null);
+  const [flippedCards, setFlippedCards] = useState({});
+
+  const toggleCard = (cardKey) => {
+    setFlippedCards((current) => ({
+      ...current,
+      [cardKey]: !current[cardKey],
+    }));
+  };
 
   return (
     <section id="projects" className="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-20">
@@ -153,11 +161,16 @@ const ProjectsSection = ({ projects }) => {
                                 }`
                           }
                         >
-                          {project.cards.map((card, cardIndex) => (
+                          {project.cards.map((card, cardIndex) => {
+                            const cardKey = `${project.title}-${cardIndex}`;
+                            const isFlippable = Boolean(card.media?.url);
+                            const isFlipped = Boolean(flippedCards[cardKey]);
+
+                            return (
                             <motion.article
                               key={card.title}
                               variants={cardVariants}
-                              className={`flex min-h-[340px] flex-col overflow-hidden rounded-[28px] border border-[rgba(39,31,27,0.07)] bg-[rgba(255,253,250,0.99)] shadow-[0_8px_20px_rgba(88,58,34,0.035)] ${
+                              className={`flex min-h-[320px] flex-col overflow-hidden rounded-[28px] border border-[rgba(39,31,27,0.07)] bg-[rgba(255,253,250,0.99)] shadow-[0_8px_20px_rgba(88,58,34,0.035)] ${
                                 project.cards.length >= 4 ? 'w-[340px] shrink-0' : 'w-full'
                               }`}
                             >
@@ -165,30 +178,71 @@ const ProjectsSection = ({ projects }) => {
                                 className={`h-3 w-full bg-gradient-to-r ${artStyles[(projectIndex + cardIndex) % artStyles.length]}`}
                               />
 
-                              <div className="flex h-full flex-col p-5">
-                                <div className="min-h-[108px]">
-                                  <h4 className="text-[1.55rem] font-bold leading-tight tracking-tight text-[var(--ink)]">
-                                    {card.title}
-                                  </h4>
-                                </div>
-
-                                <div className="min-h-[104px]">
-                                  <p className="text-[0.98rem] leading-7 text-[var(--muted)]">
-                                    {card.problem}
-                                  </p>
-                                </div>
-
+                              <button
+                                type="button"
+                                onClick={() => (isFlippable ? toggleCard(cardKey) : null)}
+                                className={`relative flex h-full w-full flex-col text-left ${
+                                  isFlippable ? 'cursor-pointer' : 'cursor-default'
+                                }`}
+                                aria-pressed={isFlippable ? isFlipped : undefined}
+                              >
                                 <div
-                                  className={`mt-4 rounded-[22px] bg-gradient-to-br ${solutionStyles[(projectIndex + cardIndex) % solutionStyles.length]} p-4`}
+                                  className={`relative flex h-full w-full flex-col transition-transform duration-500 [transform-style:preserve-3d] ${
+                                    isFlipped ? '[transform:rotateY(180deg)]' : '[transform:rotateY(0deg)]'
+                                  }`}
                                 >
-                                  <p className="text-[0.94rem] leading-7 text-[var(--ink)]">
-                                    <span className="mr-1">💡</span>
-                                    {card.solution}
-                                  </p>
+                                  <div className="absolute inset-0 flex h-full w-full flex-col p-5 [backface-visibility:hidden]">
+                                    <div className="min-h-[96px]">
+                                      <h4 className="text-[1.55rem] font-bold leading-tight tracking-tight text-[var(--ink)]">
+                                        {card.title}
+                                      </h4>
+                                    </div>
+
+                                    {card.description ? (
+                                      <p className="text-[0.98rem] leading-7 text-[var(--muted)]">
+                                        {card.description}
+                                      </p>
+                                    ) : (
+                                      <>
+                                        <div className="min-h-[104px]">
+                                          <p className="text-[0.98rem] leading-7 text-[var(--muted)]">
+                                            {card.problem}
+                                          </p>
+                                        </div>
+
+                                        <div
+                                          className={`mt-4 rounded-[22px] bg-gradient-to-br ${solutionStyles[(projectIndex + cardIndex) % solutionStyles.length]} p-4`}
+                                        >
+                                          <p className="text-[0.94rem] leading-7 text-[var(--ink)]">
+                                            <span className="mr-1">💡</span>
+                                            {card.solution}
+                                          </p>
+                                        </div>
+                                      </>
+                                    )}
+
+                                    {isFlippable && !isFlipped && (
+                                      <span className="mt-auto inline-flex w-fit items-center rounded-full border border-black/10 bg-white/80 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
+                                        Tap to view
+                                      </span>
+                                    )}
+                                  </div>
+
+                                  <div className="absolute inset-0 flex h-full w-full flex-col p-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                                    {isFlippable ? (
+                                      <img
+                                        src={card.media.url}
+                                        alt={card.media.alt ?? `${card.title} preview`}
+                                        className="h-full w-full object-cover"
+                                        loading="lazy"
+                                      />
+                                    ) : null}
+                                  </div>
                                 </div>
-                              </div>
+                              </button>
                             </motion.article>
-                          ))}
+                            );
+                          })}
                         </motion.div>
                       </div>
                     </motion.div>
