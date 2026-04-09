@@ -141,6 +141,78 @@ export const projects = [
     ],
   },
   {
+    title: 'Skill Swap Platform',
+    period: '09/2025 - Present',
+    status: 'In Progress',
+    focus: 'Full-Stack System Design',
+    summary:
+      'A platform for managing student workshops with moderation workflows, safer concurrent editing, and real-time notifications for campus communities.',
+    tech: ['React', 'Spring Boot', 'PostgreSQL', 'Supabase'],
+    link: 'https://github.com/LiChenyang-GZ',
+    accent: 'from-[#eaf7ff] to-[#f7fbff]',
+    cards: [
+      {
+        title: 'Role-Based Workshop Moderation',
+        problem:
+          'User-generated workshop content needs review before publishing to protect quality and trust.',
+        solution:
+          'Designed a moderation workflow with role-based permissions so organizers and admins can control publishing states.',
+      },
+      {
+        title: 'Concurrent Editing Safety',
+        problem:
+          'Workshop records can be overwritten when multiple users edit the same content at the same time.',
+        solution:
+          'Applied optimistic locking and version-aware updates to prevent silent overwrites.',
+      },
+      {
+        title: 'Event-Driven Notifications',
+        problem:
+          'Users miss updates when reminders and workflow events are tightly coupled to request-response flows.',
+        solution:
+          'Introduced an event-driven notification model to support decoupled reminders and status updates.',
+      },
+    ],
+    designCards: [
+      {
+        title: 'Role-Based Access Control',
+        problem:
+          'Unrestricted workshop submissions can lead to spam and inconsistent content quality.',
+        solution:
+          'Implemented role-based access control so admins moderate workshop approvals while users submit and explore content.',
+        tradeoff:
+          'Simple to reason about and extend, while still keeping publishing under controlled review.',
+      },
+      {
+        title: 'Moderation Workflow',
+        problem:
+          'User-generated workshops need validation before they become visible to the community.',
+        solution:
+          'Built a state-driven workflow from draft to pending, approved, and published so only reviewed content goes live.',
+        tradeoff:
+          'Adds friction to publishing, but significantly improves content quality and trust.',
+      },
+      {
+        title: 'Optimistic Locking',
+        problem:
+          'Multiple admins editing Markdown pages can cause silent overwrites and inconsistent content states.',
+        solution:
+          'Used version-based optimistic locking to detect stale updates and reject conflicting writes instead of allowing silent overwrites.',
+        tradeoff:
+          'Conflicts require user retry, but consistency is preserved without blocking collaborators.',
+      },
+      {
+        title: 'Notification System',
+        problem:
+          'Users lose engagement when they are not informed of approvals, updates, or participation changes.',
+        solution:
+          'Introduced event-driven notifications for approvals, registrations, and workflow updates to improve responsiveness.',
+        tradeoff:
+          'Adds another subsystem, but keeps communication logic decoupled from the core workflow.',
+      },
+    ],
+  },
+  {
     title: 'AWS Image Processing Platform',
     period: '05/2025',
     status: 'Finished',
