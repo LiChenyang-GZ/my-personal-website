@@ -109,65 +109,106 @@ export const projects = [
     status: 'In Progress',
     focus: 'Full-Stack Product Engineering',
     summary:
-      'A task management app for ADHD people, designed around smooth UI behavior and AI-assisted task breakdown to help users move step by step toward completion.',
-    tech: ['React Native', 'TypeScript', 'Tailwind CSS', '.NET Core', 'C#', 'SQL Server', 'Azure'],
+      'An AI task planning app that turns messy thoughts into clear, actionable steps, with real-time guidance and a calm, focus-first workflow.',
+    tech: ['React Native', 'TypeScript', 'Tailwind CSS', '.NET Core', 'SQL Server', 'Azure'],
     link: 'https://github.com/LiChenyang-GZ',
     accent: 'from-[#ffede7] to-[#fff8f2]',
+    media: {
+      type: 'product_mockup',
+      url: '/images/blotz-ui.png',
+    },
     cards: [
       {
-        title: 'Managing Complex UI Interactions',
-        problem:
-          'Complex interactions across calendar views, subtasks, and gestures can easily become inconsistent.',
-        solution:
-          'Designed a unified interaction system supporting scheduling, nested subtasks, and gesture-based actions.',
+        title: 'Task Breakdown & Productivity Flow',
+        description:
+          'Turns fuzzy ideas into step-by-step plans and keeps the next action visible so users can move forward without overwhelm.',
       },
       {
-        title: 'Synchronizing UI State and Data',
-        problem:
-          'Keeping UI state consistent with backend data becomes difficult in dynamic interfaces.',
-        solution:
-          'Implemented structured state management to keep user actions and application state synchronized.',
+        title: 'Interactive Calendar & Task System',
+        description:
+          'Drag, schedule, and nest tasks to see time, dependencies, and daily load at a glance.',
       },
       {
-        title: 'Scaling Feature Logic',
-        problem:
-          'Embedding logic in the frontend limits flexibility and scalability.',
-        solution:
-          'Designed backend-driven reward and evaluation systems to support extensible feature development.',
+        title: 'AI Planning Copilot',
+        description:
+          'Chat with an AI copilot to refine tasks, generate subtasks, and keep plans updated in real time.',
+      },
+      {
+        title: 'Gacha Reward Drops',
+        description:
+          'When users feel stuck, a gacha machine drops a random, low-effort task to restore momentum.',
       },
     ],
   },
   {
-    title: 'Distributed E-commerce Platform',
-    period: '10/2025',
-    status: 'Finished',
-    focus: 'Distributed Systems & Reliability',
+    title: 'Skill Swap Platform',
+    period: '09/2025 - Present',
+    status: 'In Progress',
+    focus: 'Full-Stack System Design',
     summary:
-      'A microservices-based e-commerce system designed to handle distributed transactions, service decoupling, and fault tolerance in a scalable architecture.',
-    tech: ['Java', 'Spring Boot', 'RabbitMQ', 'PostgreSQL', 'Saga', 'Microservices'],
+      'A platform for managing student workshops with moderation workflows, safer concurrent editing, and real-time notifications for campus communities.',
+    tech: ['React', 'Spring Boot', 'PostgreSQL', 'Supabase'],
     link: 'https://github.com/LiChenyang-GZ',
-    accent: 'from-[#efe8ff] to-[#fbf8ff]',
+    accent: 'from-[#eaf7ff] to-[#f7fbff]',
     cards: [
       {
-        title: 'Handling Distributed Transaction Consistency',
+        title: 'Moderation & Content Quality',
         problem:
-          'Ensuring data consistency across multiple services is difficult when failures occur mid-process.',
+          'User-generated workshop content needs review before publishing to protect quality and trust.',
         solution:
-          'Implemented Saga pattern with an Outbox mechanism to guarantee eventual consistency and reliable message delivery.',
+          'Designed a moderation workflow with role-based permissions so organizers and admins can control publishing states.',
       },
       {
-        title: 'Ensuring Reliable Message Processing',
+        title: 'Concurrent Editing Safety',
         problem:
-          'Message queues can result in data loss or duplication under failure scenarios.',
+          'Workshop records can be overwritten when multiple users edit the same content at the same time.',
         solution:
-          'Designed retry logic, manual acknowledgment, and dead-letter queues to ensure reliable event handling.',
+          'Applied optimistic locking and version-aware updates to prevent silent overwrites.',
       },
       {
-        title: 'Reducing Service Coupling',
+        title: 'Event-Driven Communication',
         problem:
-          'Tightly coupled services limit scalability and increase failure impact.',
+          'Users miss updates when reminders and workflow events are tightly coupled to request-response flows.',
         solution:
-          'Adopted an event-driven architecture using RabbitMQ to decouple services and improve system resilience.',
+          'Introduced an event-driven notification model to support decoupled reminders and status updates.',
+      },
+    ],
+    designCards: [
+      {
+        title: 'Role-Based Access Control',
+        problem:
+          'Unrestricted workshop submissions can lead to spam and inconsistent content quality.',
+        solution:
+          'Implemented role-based access control so admins moderate workshop approvals while users submit and explore content.',
+        tradeoff:
+          'Simple to reason about and extend, while still keeping publishing under controlled review.',
+      },
+      {
+        title: 'Moderation Workflow',
+        problem:
+          'User-generated workshops need validation before they become visible to the community.',
+        solution:
+          'Built a state-driven workflow from draft to pending, approved, and published so only reviewed content goes live.',
+        tradeoff:
+          'Adds friction to publishing, but significantly improves content quality and trust.',
+      },
+      {
+        title: 'Optimistic Locking',
+        problem:
+          'Multiple admins editing Markdown pages can cause silent overwrites and inconsistent content states.',
+        solution:
+          'Used version-based optimistic locking to detect stale updates and reject conflicting writes instead of allowing silent overwrites.',
+        tradeoff:
+          'Conflicts require user retry, but consistency is preserved without blocking collaborators.',
+      },
+      {
+        title: 'Notification System',
+        problem:
+          'Users lose engagement when they are not informed of approvals, updates, or participation changes.',
+        solution:
+          'Introduced event-driven notifications for approvals, registrations, and workflow updates to improve responsiveness.',
+        tradeoff:
+          'Adds another subsystem, but keeps communication logic decoupled from the core workflow.',
       },
     ],
   },
@@ -178,29 +219,54 @@ export const projects = [
     focus: 'Cloud Architecture & Scalability',
     summary:
       'A cloud-native system for scalable image processing, combining auto-scaling infrastructure with event-driven serverless workflows.',
-    tech: ['AWS', 'EC2', 'Lambda', 'SNS', 'S3', 'Aurora MySQL', 'Flask'],
+    tech: ['AWS', 'EC2', 'Lambda', 'SNS', 'S3', 'Aurora MySQL'],
     accent: 'from-[#e8f7f3] to-[#f8fffd]',
     cards: [
       {
-        title: 'Scaling Under Variable Load',
-        problem:
-          'Handling unpredictable traffic requires dynamic scaling of resources.',
-        solution:
-          'Used Auto Scaling Groups and an Application Load Balancer to maintain performance and availability.',
+        title: 'Dynamic Resource Scaling',
+        description:
+          'Auto Scaling Groups and an Application Load Balancer keep the app stable under unpredictable traffic spikes.',
+        media: {
+          url: '/images/aws-web-architecture.png',
+          alt: 'Web application architecture',
+        },
       },
       {
-        title: 'Avoiding Blocking Processing',
-        problem:
-          'Synchronous workflows reduce system responsiveness and scalability.',
-        solution:
-          'Designed an asynchronous pipeline using Lambda and SNS to process tasks efficiently.',
+        title: 'Asynchronous Event Workflow',
+        description:
+          'An async pipeline with Lambda and SNS keeps processing non-blocking and responsive at scale.',
+        media: {
+          url: '/images/aws-serverless-architecture.png',
+          alt: 'Serverless architecture',
+        },
+      },
+    ],
+  },
+  {
+    title: 'Distributed E-commerce Platform',
+    period: '10/2025',
+    status: 'Finished',
+    focus: 'Distributed Systems & Reliability',
+    summary:
+      'A microservices-based online store integrating payments, delivery, email, and warehouse inventory with a focus on availability, reliability, and eventual consistency.',
+    tech: ['Java', 'Spring Boot', 'RabbitMQ', 'PostgreSQL', 'Saga', 'Microservices'],
+    link: 'https://github.com/LiChenyang-GZ',
+    accent: 'from-[#efe8ff] to-[#fbf8ff]',
+    cards: [
+      {
+        title: 'Distributed Transaction Reliability',
+        description:
+          'Orders stay consistent across payment, inventory, and delivery with Saga compensation and Outbox-backed events.',
       },
       {
-        title: 'Decoupling Cloud Services',
-        problem:
-          'Tightly connected services reduce flexibility and increase failure propagation.',
-        solution:
-          'Separated storage, processing, and notification using S3, Lambda, and SNS.',
+        title: 'Resilient Messaging Pipeline',
+        description:
+          'Durable queues, persistent messages, and dead-letter retries keep notifications reliable under failure.',
+      },
+      {
+        title: 'Graceful Degradation Under Failure',
+        description:
+          'Optimistic locking and bounded retries prevent cascading failures while preserving availability.',
       },
     ],
   },
@@ -210,38 +276,26 @@ export const projects = [
     status: 'AI Application',
     focus: 'AI Systems & RAG Pipelines',
     summary:
-      'An AI-powered assistant built with retrieval-augmented generation to automate document-based question answering and reduce repetitive support tasks.',
+      'An internal onboarding chatbot that answers HR/IT questions from company handbooks and guides new hires through first-week workflows.',
     tech: ['LangChain', 'ChatGLM3', 'Gradio', 'RAG'],
     link: 'https://lichenyang-gz.github.io/my-personal-website/',
     accent: 'from-[#ffeef7] to-[#fff9fc]',
+    media: null,
     cards: [
       {
-        title: 'Designing Effective Knowledge Retrieval',
-        problem:
-          'Retrieval quality can degrade when knowledge base documents are poorly structured or overly aggregated.',
-        solution:
-          'Improved retrieval effectiveness by restructuring documents into smaller, semantically coherent chunks so relevant context is prioritized.',
+        title: 'Document-Grounded Answers',
+        description:
+          'Answers stay aligned with internal policies by grounding responses in handbook and policy content.',
       },
       {
-        title: 'Controlling LLM Hallucination',
-        problem:
-          'LLMs may generate confident but incorrect answers when information is missing or ambiguous.',
-        solution:
-          'Designed prompt strategies to enforce fallback behavior and reduce hallucinated responses.',
+        title: 'Policy-Safe Responses',
+        description:
+          'Strict source constraints keep replies within verified documents and reduce policy hallucinations.',
       },
       {
-        title: 'Handling Knowledge Conflicts & Priority',
-        problem:
-          'Overlapping or conflicting information across documents can reduce answer accuracy.',
-        solution:
-          'Adjusted document granularity and structure to improve relevance scoring and information prioritization.',
-      },
-      {
-        title: 'Building End-to-End AI Integration',
-        problem:
-          'AI systems require more than model access to be usable in real scenarios.',
-        solution:
-          'Integrated knowledge base, plugin orchestration, and API-based querying to build a complete, usable assistant system.',
+        title: 'Guided Onboarding Tasks',
+        description:
+          'Step-by-step guidance turns questions into action, covering HR, IT access, and first-week setup.',
       },
     ],
   },
