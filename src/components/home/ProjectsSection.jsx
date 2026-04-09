@@ -179,12 +179,12 @@ const ProjectsSection = ({ projects }) => {
                               <motion.article
                                 key={card.title}
                                 variants={cardVariants}
-                                className={`flex min-h-[340px] flex-col overflow-hidden rounded-[28px] border border-[rgba(39,31,27,0.07)] bg-[rgba(255,253,250,0.99)] shadow-[0_8px_20px_rgba(88,58,34,0.035)] ${
+                                className={`flex min-h-[312px] flex-col overflow-hidden rounded-[28px] border border-[rgba(39,31,27,0.07)] bg-[rgba(255,253,250,0.98)] shadow-[0_8px_18px_rgba(88,58,34,0.03)] ${
                                   project.cards.length >= 4 ? 'w-[340px] shrink-0' : 'w-full'
                                 }`}
                               >
                                 <div
-                                  className={`h-3 w-full bg-gradient-to-r ${artStyles[(projectIndex + cardIndex) % artStyles.length]}`}
+                                  className={`h-2 w-full bg-gradient-to-r ${artStyles[(projectIndex + cardIndex) % artStyles.length]}`}
                                 />
 
                                 <button
@@ -201,28 +201,28 @@ const ProjectsSection = ({ projects }) => {
                                     }`}
                                   >
                                     <div className="absolute inset-0 flex h-full w-full flex-col p-5 [backface-visibility:hidden]">
-                                      <div className="min-h-[96px]">
-                                        <h4 className="text-[1.55rem] font-bold leading-tight tracking-tight text-[var(--ink)]">
+                                      <div className="min-h-[78px]">
+                                        <h4 className="text-[1.32rem] font-bold leading-tight tracking-tight text-[var(--ink)]">
                                           {card.title}
                                         </h4>
                                       </div>
 
                                       {card.description ? (
-                                        <p className="text-[0.98rem] leading-7 text-[var(--muted)]">
+                                        <p className="text-[0.95rem] leading-7 text-[var(--muted)]">
                                           {card.description}
                                         </p>
                                       ) : (
                                         <>
-                                          <div className="min-h-[104px]">
-                                            <p className="text-[0.98rem] leading-7 text-[var(--muted)]">
+                                          <div className="min-h-[84px]">
+                                            <p className="text-[0.95rem] leading-7 text-[var(--muted)]">
                                               {card.problem}
                                             </p>
                                           </div>
 
                                           <div
-                                            className={`mt-4 rounded-[22px] bg-gradient-to-br ${solutionStyles[(projectIndex + cardIndex) % solutionStyles.length]} p-4`}
+                                            className={`mt-3 rounded-[20px] bg-gradient-to-br ${solutionStyles[(projectIndex + cardIndex) % solutionStyles.length]} p-4`}
                                           >
-                                            <p className="text-[0.94rem] leading-7 text-[var(--ink)]">
+                                            <p className="text-[0.92rem] leading-7 text-[var(--ink)]">
                                               <span className="mr-1">💡</span>
                                               {card.solution}
                                             </p>
@@ -257,13 +257,18 @@ const ProjectsSection = ({ projects }) => {
 
                       {project.designCards?.length ? (
                         <div className="mt-6">
-                          <button
-                            type="button"
-                            onClick={() => toggleDesignCards(project.title)}
-                            className="text-sm font-medium text-blue-600"
-                          >
-                            {designExpanded ? 'Hide System Design ↑' : 'View System Design →'}
-                          </button>
+                          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                            <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
+                              System Design Decisions
+                            </h4>
+                            <button
+                              type="button"
+                              onClick={() => toggleDesignCards(project.title)}
+                              className="text-sm font-medium text-blue-600 transition hover:underline"
+                            >
+                              {designExpanded ? 'Hide Details ↑' : 'View System Design →'}
+                            </button>
+                          </div>
 
                           <AnimatePresence initial={false}>
                             {designExpanded && (
@@ -274,58 +279,65 @@ const ProjectsSection = ({ projects }) => {
                                 transition={{ duration: 0.35, ease: 'easeInOut' }}
                                 className="overflow-hidden"
                               >
-                                <motion.div
-                                  variants={containerVariants}
-                                  initial="hidden"
-                                  animate="visible"
-                                  exit="exit"
-                                  className={`grid gap-4 ${
-                                    project.designCards.length <= 2
-                                      ? 'md:grid-cols-2'
-                                      : project.designCards.length === 3
-                                        ? 'md:grid-cols-2 xl:grid-cols-3'
-                                        : 'md:grid-cols-2 2xl:grid-cols-4'
-                                  }`}
-                                >
+                                <div className="mt-6 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+                                  <motion.div
+                                    variants={containerVariants}
+                                    initial="hidden"
+                                    animate="visible"
+                                    exit="exit"
+                                    className="flex gap-6"
+                                  >
                                   {project.designCards.map((card, cardIndex) => (
                                     <motion.article
                                       key={card.title}
                                       variants={cardVariants}
-                                      className="flex min-h-[320px] flex-col overflow-hidden rounded-[28px] border border-[rgba(39,31,27,0.07)] bg-[rgba(255,253,250,0.99)] shadow-[0_8px_20px_rgba(88,58,34,0.035)]"
+                                      className="flex min-h-[290px] min-w-[340px] max-w-[380px] flex-shrink-0 flex-col overflow-hidden rounded-[28px] border border-[rgba(39,31,27,0.06)] bg-[rgba(255,253,250,0.98)] shadow-[0_8px_18px_rgba(88,58,34,0.03)]"
                                     >
                                       <div
-                                        className={`h-3 w-full bg-gradient-to-r ${artStyles[(projectIndex + cardIndex + 1) % artStyles.length]}`}
+                                        className={`h-2 w-full bg-gradient-to-r ${artStyles[(projectIndex + cardIndex + 1) % artStyles.length]}`}
                                       />
 
-                                      <div className="flex h-full flex-col p-5">
-                                        <div className="min-h-[108px]">
-                                          <h4 className="text-[1.45rem] font-bold leading-tight tracking-tight text-[var(--ink)]">
+                                      <div className="flex h-full flex-col gap-3 p-5">
+                                        <div className="min-h-[72px]">
+                                          <h4 className="text-[1.18rem] font-bold leading-tight tracking-tight text-[var(--ink)]">
                                             {card.title}
                                           </h4>
                                         </div>
 
-                                        <div className="min-h-[104px]">
-                                          <p className="text-[0.98rem] leading-7 text-[var(--muted)]">
+                                        <div>
+                                          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
+                                            Problem
+                                          </p>
+                                          <p className="mt-1 text-[0.92rem] leading-6 text-[var(--muted)]">
                                             {card.problem}
                                           </p>
                                         </div>
 
                                         <div
-                                          className={`mt-4 rounded-[22px] bg-gradient-to-br ${solutionStyles[(projectIndex + cardIndex + 1) % solutionStyles.length]} p-4`}
+                                          className={`rounded-[20px] bg-gradient-to-br ${solutionStyles[(projectIndex + cardIndex + 1) % solutionStyles.length]} p-4`}
                                         >
-                                          <p className="text-[0.94rem] leading-7 text-[var(--ink)]">
+                                          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[var(--ink)]/70">
+                                            Solution
+                                          </p>
+                                          <p className="mt-1 text-[0.92rem] leading-6 text-[var(--ink)]">
                                             <span className="mr-1">💡</span>
                                             {card.solution}
                                           </p>
                                         </div>
 
-                                        <p className="mt-auto pt-4 text-xs leading-6 text-[var(--muted)]">
-                                          Trade-off: {card.tradeoff}
-                                        </p>
+                                        <div className="mt-auto border-t border-black/5 pt-3">
+                                          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
+                                            Trade-off
+                                          </p>
+                                          <p className="mt-1 text-xs leading-5 text-[var(--muted)]">
+                                            {card.tradeoff}
+                                          </p>
+                                        </div>
                                       </div>
                                     </motion.article>
                                   ))}
-                                </motion.div>
+                                  </motion.div>
+                                </div>
                               </motion.div>
                             )}
                           </AnimatePresence>

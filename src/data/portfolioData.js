@@ -152,7 +152,7 @@ export const projects = [
     accent: 'from-[#eaf7ff] to-[#f7fbff]',
     cards: [
       {
-        title: 'Role-Based Workshop Moderation',
+        title: 'Moderation & Content Quality',
         problem:
           'User-generated workshop content needs review before publishing to protect quality and trust.',
         solution:
@@ -166,7 +166,7 @@ export const projects = [
           'Applied optimistic locking and version-aware updates to prevent silent overwrites.',
       },
       {
-        title: 'Event-Driven Notifications',
+        title: 'Event-Driven Communication',
         problem:
           'Users miss updates when reminders and workflow events are tightly coupled to request-response flows.',
         solution:
