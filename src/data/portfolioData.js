@@ -139,6 +139,29 @@ export const projects = [
           'When users feel stuck, a gacha machine drops a random, low-effort task to restore momentum.',
       },
     ],
+    designCards: [
+      {
+        title: 'Managing Complex UI Interactions',
+        problem: 'Complex interactions across calendar views, subtasks, and gestures can easily become inconsistent.',
+        solution: 'Designed a unified interaction system supporting scheduling, nested subtasks, and gesture-based actions.',
+        tradeoff: 'Increased initial boilerplate for state management, but drastically reduced UI bugs in edge cases.',
+        icon: "Network"
+      },
+      {
+        title: 'Synchronizing UI State and Data',
+        problem: 'Keeping UI state consistent with backend data becomes difficult in dynamic, offline-capable interfaces.',
+        solution: 'Implemented structured state management to keep user actions and application state synchronized across device and cloud.',
+        tradeoff: 'Optimistic UI updates improve perceived performance, requiring robust rollback logic if backend sync fails.',
+        icon: "Layers"
+      },
+      {
+        title: 'Scaling Feature Logic',
+        problem: 'Embedding logic in the frontend limits flexibility and scalability, especially for dynamic features like rewards.',
+        solution: 'Designed backend-driven reward and evaluation systems to support extensible feature development without app updates.',
+        tradeoff: 'Requires constant API connectivity for dynamic features, mitigated by caching standard rules locally.',
+        icon: "Workflow"
+      }
+    ],
   },
   {
     title: 'Skill Swap Platform',
@@ -152,48 +175,39 @@ export const projects = [
     accent: 'from-[#eaf7ff] to-[#f7fbff]',
     cards: [
       {
-        title: 'Moderation & Content Quality',
-        problem:
-          'User-generated workshop content needs review before publishing to protect quality and trust.',
-        solution:
-          'Designed a moderation workflow with role-based permissions so organizers and admins can control publishing states.',
+        title: 'Explore & Attend Workshops',
+        description:
+          'Browse upcoming skill-sharing events across campus, filter by interest area, and register in one step.',
       },
       {
-        title: 'Concurrent Editing Safety',
-        problem:
-          'Workshop records can be overwritten when multiple users edit the same content at the same time.',
-        solution:
-          'Applied optimistic locking and version-aware updates to prevent silent overwrites.',
+        title: 'Submit & Host Workshops',
+        description:
+          'Any users can propose a workshop. Submissions enter a moderation queue and go live only after admin approval, keeping content quality high.',
       },
       {
-        title: 'Event-Driven Communication',
-        problem:
-          'Users miss updates when reminders and workflow events are tightly coupled to request-response flows.',
-        solution:
-          'Introduced an event-driven notification model to support decoupled reminders and status updates.',
+        title: 'Memory Page',
+        description: 'A dedicated space with embedded Markdown editors preserving past workshops for ongoing knowledge retention and engagement.',
+      },
+      {
+        title: 'Smart Notifications',
+        description:
+          'Users are notified when their workshop is approved, when event details change, or when a session they joined has updates.',
       },
     ],
     designCards: [
       {
-        title: 'Role-Based Access Control',
+        title: 'Role-Based Access Control & Moderation',
+        icon: 'Shield',
         problem:
           'Unrestricted workshop submissions can lead to spam and inconsistent content quality.',
         solution:
-          'Implemented role-based access control so admins moderate workshop approvals while users submit and explore content.',
+          'Built a state-driven workflow (Draft -> Pending -> Approved) with RBAC, ensuring only reviewed content goes live.',
         tradeoff:
-          'Simple to reason about and extend, while still keeping publishing under controlled review.',
+          'Adds friction to the publishing process, but significantly improves community trust and content quality.',
       },
       {
-        title: 'Moderation Workflow',
-        problem:
-          'User-generated workshops need validation before they become visible to the community.',
-        solution:
-          'Built a state-driven workflow from draft to pending, approved, and published so only reviewed content goes live.',
-        tradeoff:
-          'Adds friction to publishing, but significantly improves content quality and trust.',
-      },
-      {
-        title: 'Optimistic Locking',
+        title: 'Optimistic Locking for Concurrent Editing',
+        icon: 'Lock',
         problem:
           'Multiple admins editing Markdown pages can cause silent overwrites and inconsistent content states.',
         solution:
@@ -202,13 +216,14 @@ export const projects = [
           'Conflicts require user retry, but consistency is preserved without blocking collaborators.',
       },
       {
-        title: 'Notification System',
+        title: 'Event-Driven Notification System',
+        icon: 'Bell',
         problem:
-          'Users lose engagement when they are not informed of approvals, updates, or participation changes.',
+          'Tying notification logic directly to the core request-response flow increases latency and system coupling.',
         solution:
           'Introduced event-driven notifications for approvals, registrations, and workflow updates to improve responsiveness.',
         tradeoff:
-          'Adds another subsystem, but keeps communication logic decoupled from the core workflow.',
+          'Adds infrastructure complexity, but keeps communication logic decoupled from the core workflow.',
       },
     ],
   },
@@ -241,6 +256,35 @@ export const projects = [
         },
       },
     ],
+    designCards: [
+      {
+        title: 'Scaling Under Variable Load',
+        problem: 'Handling unpredictable upload traffic requires dynamic scaling of compute resources.',
+        solution: 'Used Auto Scaling Groups and an Application Load Balancer to automatically spin up/down EC2 instances based on load.',
+        tradeoff: 'Slight delay during scale-out (cold starts), but drastically reduces idle server costs.',
+        icon: "TrendingUp"
+      },
+      {
+        title: 'Async Processing Pipeline',
+        icon: 'Workflow',
+        problem:
+          'Synchronous image processing ties up web servers and degrades user-facing response times.',
+        solution:
+          'Decoupled upload from processing: S3 uploads trigger SNS events, which invoke Lambda functions to process images asynchronously.',
+        tradeoff:
+          'Users receive a processing-started response rather than a completed result, requiring polling or push notification for status — a reasonable trade for throughput.',
+      },
+      {
+        title: 'Service Boundary Separation',
+        icon: 'Unlink',
+        problem:
+          'Bundling storage, compute, and notification in a single service creates tight coupling and a single point of failure.',
+        solution:
+          'Separated responsibilities across S3 (storage), Lambda (processing), and SNS (notification), each independently replaceable.',
+        tradeoff:
+          'More moving parts to configure and monitor, but each component scales and fails independently.',
+      },
+    ],
   },
   {
     title: 'Distributed E-commerce Platform',
@@ -267,6 +311,48 @@ export const projects = [
         title: 'Graceful Degradation Under Failure',
         description:
           'Optimistic locking and bounded retries prevent cascading failures while preserving availability.',
+      },
+    ],
+    designCards: [
+      {
+        title: 'Saga Pattern for Distributed Transactions',
+        icon: 'GitMerge',
+        problem:
+          'A single order spans multiple services — payment, inventory, delivery. A failure in any step can leave data inconsistent across the system.',
+        solution:
+          'Implemented the Saga choreography pattern: each service publishes domain events and listens for compensating events to roll back on failure.',
+        tradeoff:
+          'Eventual consistency means a brief window where state is intermediate — acceptable for e-commerce, where strict two-phase commit would introduce unacceptable latency and coupling.',
+      },
+      {
+        title: 'Transactional Outbox Pattern',
+        icon: 'Inbox',
+        problem:
+          'Writing to the database and publishing a message to RabbitMQ are two separate operations — a crash between them causes silent data loss.',
+        solution:
+          'Used the Outbox pattern: events are written to a database table in the same transaction as the business operation, then a relay process publishes them to the queue.',
+        tradeoff:
+          'Adds a relay process and an extra table, but completely eliminates the dual-write problem without distributed transactions.',
+      },
+      {
+        title: 'Dead-Letter Queue & Retry Strategy',
+        icon: 'RefreshCw',
+        problem:
+          'Messages that fail processing can block queues or be silently dropped, causing invisible data loss.',
+        solution:
+          'Configured manual acknowledgment with bounded retries. After exhausting retries, messages route to a dead-letter queue for inspection and replay.',
+        tradeoff:
+          'DLQ messages require manual review, but this is far preferable to silent loss — and provides observability into failure patterns.',
+      },
+      {
+        title: 'Service Decomposition Boundaries',
+        icon: 'LayoutGrid',
+        problem:
+          'Poorly defined service boundaries lead to chatty inter-service calls and high coupling under change.',
+        solution:
+          'Decomposed by business capability — order, payment, inventory, notification — each owning its data and communicating only through events.',
+        tradeoff:
+          'Distributed data means no joins across services; queries that span domains require aggregation at the application layer or dedicated read models.',
       },
     ],
   },
@@ -296,6 +382,48 @@ export const projects = [
         title: 'Guided Onboarding Tasks',
         description:
           'Step-by-step guidance turns questions into action, covering HR, IT access, and first-week setup.',
+      },
+    ],
+    designCards: [
+      {
+        title: 'Document Chunking Strategy',
+        icon: 'Scissors',
+        problem:
+          'Large policy documents fed whole into retrieval return overly broad chunks that dilute relevance and confuse the model.',
+        solution:
+          'Split documents into small, semantically coherent sections around logical boundaries (headings, numbered steps), so retrieved chunks map closely to specific questions.',
+        tradeoff:
+          'Fine-grained chunks improve precision but increase index size and can lose context that spans sections — mitigated by including surrounding metadata in each chunk.',
+      },
+      {
+        title: 'Grounding & Hallucination Control',
+        icon: 'Anchor',
+        problem:
+          'LLMs will answer confidently even when retrieved context is insufficient, producing plausible but incorrect policy guidance.',
+        solution:
+          'Enforced a prompt constraint requiring the model to explicitly refuse or flag when retrieved context does not contain enough information to answer.',
+        tradeoff:
+          'Increases "I don\'t know" responses, which feels less capable — but for HR and IT policy, a conservative non-answer is safer than a confident wrong one.',
+      },
+      {
+        title: 'Retrieval Pipeline Design',
+        icon: 'Search',
+        problem:
+          'Simple keyword retrieval misses semantically similar but differently worded questions common in onboarding queries.',
+        solution:
+          'Used dense vector embeddings for retrieval, matching questions to relevant document chunks by meaning rather than exact wording.',
+        tradeoff:
+          'Embedding-based retrieval is slower and requires an embedding model in the pipeline, but retrieval quality is substantially better for natural language questions.',
+      },
+      {
+        title: 'End-to-End System Integration',
+        icon: 'FileText',
+        problem:
+          'A standalone language model is not enough — users need a complete system they can interact with, not just a model endpoint.',
+        solution:
+          'Assembled the full pipeline: document ingestion, vector indexing, retrieval, prompt construction, and a Gradio UI, integrated via LangChain orchestration.',
+        tradeoff:
+          'More components to maintain, but each layer is independently replaceable — swapping the base model or document source does not require redesigning the whole system.',
       },
     ],
   },
