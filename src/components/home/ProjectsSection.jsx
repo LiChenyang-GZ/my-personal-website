@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
 import SectionHeader from './SectionHeader';
+import { Shield, GitBranch, Lock, Bell, Layers, Network, Bot, Gift,
+          TrendingUp, Workflow, Unlink, GitMerge, Inbox, RefreshCw,
+          LayoutGrid, Scissors, Anchor, Search, FileText, Users } from 'lucide-react';
 
 const artStyles = [
   'from-[#ffe08a] to-[#ffd6c3]',
@@ -17,6 +20,12 @@ const solutionStyles = [
   'from-[#f6dfd3] to-[#f2d1c3]',
   'from-[#ddd4ff] to-[#ead7ff]',
 ];
+
+const ICONS = {
+   Shield, GitBranch, Lock, Bell, Layers, Network, Bot, Gift,
+   TrendingUp, Workflow, Unlink, GitMerge, Inbox, RefreshCw,
+   LayoutGrid, Scissors, Anchor, Search, FileText, Users,
+ };
 
 const containerVariants = {
   hidden: {},
@@ -55,6 +64,7 @@ const cardVariants = {
 const DecisionRow = ({ card }) => {
   const [showSolution, setShowSolution] = useState(false);
   const [showTradeoff, setShowTradeoff] = useState(false);
+  const Icon = ICONS[card.icon];
 
   return (
     <motion.article
@@ -65,7 +75,7 @@ const DecisionRow = ({ card }) => {
       <div className="flex items-center gap-4 mb-6">
         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[rgba(255,122,89,0.1)] text-[var(--accent)] border border-[rgba(255,122,89,0.2)]">
           {card.icon ? (
-            <span className="text-xl leading-none">{card.icon}</span>
+            <Icon className="w-5 h-5 text-current" />
           ) : (
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="16 18 22 12 16 6"></polyline>
