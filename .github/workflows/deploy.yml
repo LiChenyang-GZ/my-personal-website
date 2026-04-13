@@ -8,28 +8,38 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write   # ✅ 关键！必须加
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node
+        uses: actions/setup-node@v4   # ✅ 升级
         with:
-          node-version: 16
+          node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build project
+      - name: Build
         run: npm run build
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: dist
-          token: ${{ secrets.GITHUB_TOKEN }}
           clean: true
-          silent: false
