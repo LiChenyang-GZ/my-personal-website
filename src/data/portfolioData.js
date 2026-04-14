@@ -242,7 +242,7 @@ export const projects = [
         description:
           'Auto Scaling Groups and an Application Load Balancer keep the app stable under unpredictable traffic spikes.',
         media: {
-          url: '/images/aws-web-architecture.png',
+          url: 'Web Application Architecture.png',
           alt: 'Web application architecture',
         },
       },
@@ -251,7 +251,7 @@ export const projects = [
         description:
           'An async pipeline with Lambda and SNS keeps processing non-blocking and responsive at scale.',
         media: {
-          url: '/images/aws-serverless-architecture.png',
+          url: 'Serverless Architecture.png',
           alt: 'Serverless architecture',
         },
       },
