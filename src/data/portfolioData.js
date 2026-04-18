@@ -111,7 +111,7 @@ export const projects = [
     summary:
       'An AI task planning app that turns messy thoughts into clear, actionable steps, with real-time guidance and a calm, focus-first workflow.',
     tech: ['React Native', 'TypeScript', 'Tailwind CSS', '.NET Core', 'SQL Server', 'Azure'],
-    link: 'https://github.com/LiChenyang-GZ',
+    link: 'https://github.com/sol-wizard/Blotz-Task-App',
     accent: 'from-[#ffede7] to-[#fff8f2]',
     media: {
       type: 'product_mockup',
@@ -171,7 +171,7 @@ export const projects = [
     summary:
       'A platform for managing student workshops with moderation workflows, safer concurrent editing, and real-time notifications for campus communities.',
     tech: ['React', 'Spring Boot', 'PostgreSQL', 'Supabase'],
-    link: 'https://github.com/LiChenyang-GZ',
+    link: 'https://github.com/LiChenyang-GZ/SkillSwap-Web',
     accent: 'from-[#eaf7ff] to-[#f7fbff]',
     cards: [
       {
@@ -294,7 +294,7 @@ export const projects = [
     summary:
       'A microservices-based online store integrating payments, delivery, email, and warehouse inventory with a focus on availability, reliability, and eventual consistency.',
     tech: ['Java', 'Spring Boot', 'RabbitMQ', 'PostgreSQL', 'Saga', 'Microservices'],
-    link: 'https://github.com/LiChenyang-GZ',
+    link: 'https://github.com/LiChenyang-GZ/microservices-ecommerce-platform',
     accent: 'from-[#efe8ff] to-[#fbf8ff]',
     cards: [
       {
@@ -364,7 +364,6 @@ export const projects = [
     summary:
       'An internal onboarding chatbot that answers HR/IT questions from company handbooks and guides new hires through first-week workflows.',
     tech: ['LangChain', 'ChatGLM3', 'Gradio', 'RAG'],
-    link: 'https://lichenyang-gz.github.io/my-personal-website/',
     accent: 'from-[#ffeef7] to-[#fff9fc]',
     media: null,
     cards: [
