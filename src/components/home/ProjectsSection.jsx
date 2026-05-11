@@ -5,7 +5,7 @@ import ScrollReveal from './ScrollReveal';
 import SectionHeader from './SectionHeader';
 import { Shield, GitBranch, Lock, Bell, Layers, Network, Bot, Gift,
           TrendingUp, Workflow, Unlink, GitMerge, Inbox, RefreshCw,
-          LayoutGrid, Scissors, Anchor, Search, FileText, Users } from 'lucide-react';
+          LayoutGrid, Scissors, Anchor, Search, FileText, Users} from 'lucide-react';
 
 const artStyles = [
   'from-[#ffe08a] to-[#ffd6c3]',

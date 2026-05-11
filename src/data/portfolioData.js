@@ -169,9 +169,9 @@ export const projects = [
     status: 'In Progress',
     focus: 'Full-Stack System Design',
     summary:
-      'A platform for managing student workshops with moderation workflows, safer concurrent editing, and real-time notifications for campus communities.',
-    tech: ['React', 'Spring Boot', 'PostgreSQL', 'Supabase'],
-    link: 'https://github.com/LiChenyang-GZ/SkillSwap-Web',
+      'A campus workshop platform that helps students discover, host, and preserve skill-sharing sessions through moderated publishing and collaborative content pages.',
+    tech: ['React', 'Spring Boot', 'PostgreSQL', 'Azure', 'Clerk Auth', 'Vercel'],
+    link: 'https://skillswap-club.site/',
     accent: 'from-[#eaf7ff] to-[#f7fbff]',
     cards: [
       {
@@ -224,6 +224,16 @@ export const projects = [
           'Introduced event-driven notifications for approvals, registrations, and workflow updates to improve responsiveness.',
         tradeoff:
           'Adds infrastructure complexity, but keeps communication logic decoupled from the core workflow.',
+      },
+      {
+        title: 'Improving Review Efficiency',
+        icon: 'Workflow',
+        problem:
+          'A student-led engineering team has limited reviewer bandwidth, making it difficult to catch implementation issues consistently.',
+        solution:
+          'Configured an AI-assisted pull request review workflow to surface high-signal inline comments before manual review.',
+        tradeoff:
+          'Automation improves review coverage, but final merge decisions still require human judgment.',
       },
     ],
   },
@@ -491,6 +501,6 @@ export const timelineItems = [
     subtitle: 'Skill Swap Club, The University of Sydney',
     detail:
       'Leading the development of a skill-sharing platform for Skill Swap Club, built with Spring Boot, React, and Supabase, deployed with Vercel and Render. Managing a small team and iterating based on user/club president feedback.',
-    tags: ['Spring Boot', 'React', 'Supabase', 'Vercel', 'Render'],
+    tags: ['Spring Boot', 'React', 'Azure', 'Clerk Auth', 'Vercel', 'Render'],
   },
 ];
